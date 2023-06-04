@@ -1,0 +1,8 @@
+pydantic
+tortoise-orm[aiosqlite]
+https://github.com/aiogram/aiogram/archive/refs/heads/dev-3.x.zip
+aiohttp-socks
+loguru
+# magic-filter
+# aiofiles
+# aiohttp

@@ -1,0 +1,30 @@
+{
+  "tg": { // tg相关
+    "user_id": "", //个人id 没有实现
+    "bot_token": "", // 机器人token 必填
+    "tg_api": "",// 反代如果国内填写
+    "tg_proxy": "", // 代理 socks5://127.0.0.1:10808
+    "forward_from": [ // 转发ID
+
+    ],
+    "black_id": [ // 屏蔽ID
+      ]
+    },
+  "activities": {// 活动相关
+    "black_keywords": [ // 屏蔽的活动关键字
+    ],
+    "black_script": [// 屏蔽的脚本
+
+    ]
+  },
+  "ql": {
+    "file": "qlva.sh", // 写入青龙的文件,不能使用青龙自带的文件
+    "url": "",// 青龙的地址 http://ip:post 不带/
+    "Client_ID": "", // 青龙面板 系统变量 应用设置
+    "Client_Secret": "" // 需要权限 定时任务 配置文件
+  },
+  "project": {
+    "log_level": "INFO", // 日志打印级别 普通用户不用修改
+    "log_path": "logs/" // 日志存储路径
+  }
+}
