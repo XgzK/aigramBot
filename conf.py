@@ -38,7 +38,7 @@ conf = {
     "project": {
     }
 }
-tgurl = ["https://tg-bot.0x23.cf", "https://thingproxy.freeboard.io/fetch/https://api.telegram.org"]
+tgurl = ["https://tg-bot.0x23.cf"] #, "https://thingproxy.freeboard.io/fetch/https://api.telegram.org"]
 
 
 def tg():
@@ -58,7 +58,7 @@ def tg():
             conf['tg']['tg_proxy'] = tg_proxy
         else:
             print("由于你没有选择使用代理,将会为你自动配置反代域名连接TG")
-            conf['tg']['tg_proxy'] = random.choice(tgurl)
+            conf['tg']['tg_api'] = random.choice(tgurl)
 
     # 转发
     forward = input('是否需要转发 是输入 Y 否输入 N (未经开发者同意请误随意转发): ')

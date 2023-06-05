@@ -22,6 +22,8 @@ class QlModel(BaseModel):
     Client_Secret: str
     expiration: int = 0  # 青龙auth过期时间
     Authorization: str = None
+    class Config:
+        orm_mode = True
 
 
 class ProjectModel(BaseModel):

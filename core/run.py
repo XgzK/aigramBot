@@ -7,10 +7,11 @@ import time
 from core import queue
 from init.conf import conf
 from schemas.activities import ExportModel
+from schemas.conf import QlModel
 from utils.logs import log
 from utils.ql import Ql
-
-
+ql = QlModel.from_orm(conf.ql)
+print(ql)
 class Core(Ql):
 
     def __init__(self):
@@ -33,8 +34,11 @@ class Core(Ql):
             if not tf:
                 continue
             # 开始执行后续任务
-            await self.ql_task_run(get_queue)
-            await asyncio.sleep(2)
+            if ql.url:
+                await self.ql_task_run(get_queue)
+                await asyncio.sleep(3)
+            else:
+                await asyncio.sleep(10)
 
     async def detection(self):
         """
@@ -44,35 +48,35 @@ class Core(Ql):
         """
         ti = int(time.time())
         # 先检测是否过期或者或者需要获取青龙的
-        if conf.ql.expiration <= ti:
+        if ql.expiration <= ti:
             await log.info("获取青龙auth")
             params = {
-                'client_id': conf.ql.Client_ID,
-                'client_secret': conf.ql.Client_Secret
+                'client_id': ql.Client_ID,
+                'client_secret': ql.Client_Secret
             }
             # 如果过期将会重新获取
-            ql_tk = await self.token(conf.ql.url, params)
+            ql_tk = await self.token(ql.url, params)
             if ql_tk['code'] != 200:
                 return False
             # 写入模型中
-            conf.ql.Authorization = f"{ql_tk['data']['token_type']} {ql_tk['data']['token']}"
-            conf.ql.expiration = ql_tk['data']['expiration']
+            ql.Authorization = f"{ql_tk['data']['token_type']} {ql_tk['data']['token']}"
+            ql.expiration = ql_tk['data']['expiration']
 
         # 获取青龙的任务列表
         if self.new_time <= ti:
             await log.info("获取任务列表")
-            self.ql_json = await self.get_crontab_json(url=conf.ql.url, auth=conf.ql.Authorization)
+            self.ql_json = await self.get_crontab_json(url=ql.url, auth=ql.Authorization)
             self.new_time = ti + 3600
         # 检测青龙配置文件是否存在
         if not self.ql_tf:
-            ql_path = await self.get_configs_files(url=conf.ql.url, auth=conf.ql.Authorization)
+            ql_path = await self.get_configs_files(url=ql.url, auth=ql.Authorization)
             if ql_path['code'] != 200:
                 pass
             for file in ql_path['data']:
-                if file['title'] == conf.ql.file:
+                if file['title'] == ql.file:
                     self.ql_tf = True
                     return True
-            await log.error(f"青龙配置文件中没有检测到 {conf.ql.file} 文件 请参考说明文档有关青龙设置部分")
+            await log.error(f"青龙配置文件中没有检测到 {ql.file} 文件 请参考说明文档有关青龙设置部分")
             return False
         return True
 
@@ -98,12 +102,12 @@ class Core(Ql):
                 continue
             name_json = self.ql_json.get(get_list.name)
             # 写入配置文件中
-            save = await self.post_configs_save(url=conf.ql.url, auth=conf.ql.Authorization, content=get_list.value,
-                                                path=conf.ql.file)
+            save = await self.post_configs_save(url=ql.url, auth=ql.Authorization, content=get_list.value,
+                                                path=ql.file)
             if save['code'] != 200:
                 await log.error(f"青龙返回状态码异常 {save}")
                 return False
-            run = await self.put_crontab_run(url=conf.ql.url, auth=conf.ql.Authorization, data=[name_json.get(list(name_json.keys())[0])['id']])
+            run = await self.put_crontab_run(url=ql.url, auth=ql.Authorization, data=[name_json.get(list(name_json.keys())[0])['id']])
             if run['code'] != 200:
                 await log.error(f"青龙返回状态码异常 {run}")
                 return False

@@ -149,7 +149,7 @@ class Ql(HTTPClient):
         比如 10版本是 _id 11版本是 id
         13后几个版本 外边多了层[]
         """
-        for js_list in crontab['data'] if 'data' in crontab else crontab:
+        for js_list in crontab['data']['data'] if 'data' in crontab['data'] else crontab['data']:
 
             re_filter = re.findall('task .*?(\w+\.(?:py|js|ts))', js_list['command'])
             if re_filter:
