@@ -90,6 +90,67 @@ docker cp config.json5 aigramBot:/aigram
   }
 }
 ```
+
+# 线报配置
+```text
+match_url 教程
+    表示拼接成的链接 如 export jd_txzj_sign_in_id 拼接的head_url是 https://txzj-isv.isvjcloud.com/sign_in/home?a=jd_txzj_sign_in_id
+re_url 
+    (https.*?activityType=(?:10020|10021|10026|10031|10063|10080).*) 匹配链接有 10020 10021 10026 10031 10063 10080 其中一个出现就匹配 
+    (https.*?activityType=10024.*) 匹配 activityType=10024
+head_url 
+   匹配正则表达式 com/((?:ql/|microDz/)?[a-zA-Z]+/?[a-zA-Z]*) 匹配结构去掉com/ 去在线正则表达式测试就看到了
+```
+```json5
+{
+  "alias": "脚本的中文名称", // 必填
+  "name": "脚本的名称 sh js py", // 必填
+  "match_url": "活动转url使用的,通常是export转链接的拼接",
+  "re_url": "url转活动的正则表达式",
+  "head_url": "链接关键部分", // 
+  "type_url": "脚本支持链接类型",
+  "cutting": "拼接符号",
+  "delays": "间隔秒", // 默认5
+  "level": "脚本优先级别越大级别越高",// 默认0
+  "value1": "export jd_1", // 必填
+  "value2": "export jd_2",
+  "value3": "export jd_3",
+}
+```
+下面是必填否则报错
+```json5
+{
+  "alias": "脚本的中文名称", // 必填
+  "name": "脚本的名称 sh js py", // 必填
+  "value1": "export jd_1", // 必填
+}
+```
+演示
+```json5
+{
+  "alias": "关注店铺有礼（超级无线欧莱雅）",
+  "name": "jd_lzkj_loreal_lkFollowShop.js",
+  "match_url": "jd_lzkj_loreal_lkFollowShop_ur",
+  "re_url": "(https.*?activityType=10069.*?activityId=\\w+.*?)",
+  "head_url": "prod/cc",
+  "value1": "export jd_lzkj_loreal_lkFollowShop_ur"
+}
+```
+```json5
+{
+  "alias": "积分兑换京豆 · 超级会员",
+  "name": "jd_pointExgBeans.js",
+  "match_url": "jd_pointExgBeans_activityUrl",
+  "re_url": ".*", // 表示匹配链接所有
+  "level": 4,
+  "head_url": "mc/wxPointShopView/pointExgBeans", 
+  "value1": "export jd_pointExgBeans_activityUrl"
+}
+```
 ### 版本
-- 0.1 内测版本
-- > 简单实现了 [QL_variable](https://github.com/XgzK/QL_variable) 的功能,没有单个脚本延迟执行, 没有实现web端,没有实现禁用青龙任务,没有实现多青龙面板支持,没有实现远程数据库支持
+- > 0.1 内测版本  
+  > 简单实现了 [QL_variable](https://github.com/XgzK/QL_variable) 的功能,没有单个脚本延迟执行, 没有实现web端,没有实现禁用青龙任务,没有实现多青龙面板支持,没有实现远程数据库支持
+- > 0.2 内测版本  
+  > 修复同时发送相同活动无法过滤bug  
+  > 修复同消息多链接遇到执行过活动结束bug  
+  > 修复私聊发送活动无法执行问题 

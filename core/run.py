@@ -10,8 +10,10 @@ from schemas.activities import ExportModel
 from schemas.conf import QlModel
 from utils.logs import log
 from utils.ql import Ql
+
 ql = QlModel.from_orm(conf.ql)
-print(ql)
+
+
 class Core(Ql):
 
     def __init__(self):
@@ -36,7 +38,7 @@ class Core(Ql):
             # 开始执行后续任务
             if ql.url:
                 await self.ql_task_run(get_queue)
-                await asyncio.sleep(3)
+                await asyncio.sleep(2)
             else:
                 await asyncio.sleep(10)
 
@@ -46,6 +48,9 @@ class Core(Ql):
         :return:
         :rtype:
         """
+        if ql.url == "" or not ql.url:
+            await log.info("填写青龙配置缺失")
+            return False
         ti = int(time.time())
         # 先检测是否过期或者或者需要获取青龙的
         if ql.expiration <= ti:
@@ -107,7 +112,8 @@ class Core(Ql):
             if save['code'] != 200:
                 await log.error(f"青龙返回状态码异常 {save}")
                 return False
-            run = await self.put_crontab_run(url=ql.url, auth=ql.Authorization, data=[name_json.get(list(name_json.keys())[0])['id']])
+            run = await self.put_crontab_run(url=ql.url, auth=ql.Authorization,
+                                             data=[name_json.get(list(name_json.keys())[0])['id']])
             if run['code'] != 200:
                 await log.error(f"青龙返回状态码异常 {run}")
                 return False

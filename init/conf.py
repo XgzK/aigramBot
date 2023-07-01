@@ -11,7 +11,7 @@ while not os.path.exists("config.json5"):
     print("docker exec -i -t aigramBot /bin/sh")
     print("python3 conf.py")
     print("根据提示完成配置")
-    time.sleep(10)
+    time.sleep(20)
 if os.path.exists("configtest.json5"):
     conf: ConfModel = ConfModel.parse_file("configtest.json5")
 else:

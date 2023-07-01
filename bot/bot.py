@@ -45,6 +45,7 @@ async def private_handler(message: types.Message) -> None:
                    f"转发id: {message.forward_from_chat.id}\n" \
                    f"转发名称: {message.forward_from_chat.title}"
             await message.answer(text=text)
+        await poni.pie(message.text)
         # print("接收私聊消息和文本", message.json())
         # Send copy of the received message
         # await message.send_copy(chat_id=message.chat.id)
@@ -59,7 +60,6 @@ async def private_handler(message: types.Message) -> None:
     接收非私聊消息和文本,主要用于监控活动大概
     """
     try:
-        # await log.debug(message.json(ensure_ascii=False))
         # 屏蔽转发的id和转发群组的ID
         if message.forward_from_chat and message.forward_from_chat.id in black_id:
             await log.debug(f"{message.forward_from_chat.id} 设置了屏蔽或转发将自动屏蔽该内容")
@@ -107,4 +107,4 @@ async def main_bot() -> None:
     if not a.can_read_all_group_messages:
         await log.error(f"无法接收全部消息 找 https://t.me/BotFather 发送 /setprivacy 选择 @{a.username} 选择 DISABLED")
     # And the run events dispatching
-    await dp.start_polling(bot)
+    await dp.start_polling(bot, polling_timeout=100)

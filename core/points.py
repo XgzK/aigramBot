@@ -1,6 +1,7 @@
 """
 用于分拣活动
 """
+import asyncio
 import re
 import time
 from urllib import parse
@@ -25,6 +26,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
         self.chat_id_list: list[int] = conf.tg.forward_from
         self.black_keywords = "|".join(conf.activities.black_keywords)
         self.expired: int = int(time.time()) + 3600
+        self.lock = asyncio.Lock()
 
     async def pie(self, text: str):
         """
@@ -61,7 +63,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
                     ht_tx = re.findall(r'(https://[\w\-.]+(?:isv|jd).*?\.com/[a-zA-Z0-9&?=_/-].*)', url)
                     if ht_tx:
                         if not await self.repeat(ht_tx[0]):
-                            return
+                            continue
                         export_va = await self.convert_url(ht_tx)
                         # 下面就是加入队列了
                         if export_va:
@@ -159,11 +161,16 @@ class Points(Convert, MethodActivities, MethodRepeats):
             await self.dele_ti(int(time.time()))
             self.expired = int(time.time()) + 3600
         # 检测是否存在
-        re_per = re.findall("(?:activityId=|configCode=|actId=|code=|token=|shopId=)(\w+)&?", text)
+        re_per = re.findall("(?:activityId=|configCode=|actId=|code=|token=|shopId=|id=)(\w+)&?", text)
         if re_per:
-            sele = await self.select_pe(value=re_per[0])
-            if sele:
-                await log.info(f"{re_per[0]} 已经执行过了")
-                return False
-            await self.add_pe(value=re_per[0], time=int(time.time()) + 3600)
-            return True
+            async with self.lock:
+                se_re = await self.select_pe(value=re_per[0])
+                if se_re:
+                    await log.info(f"{re_per[0]} 已经执行过了")
+                    return False
+                else:
+                    await self.add_pe(value=re_per[0], time=int(time.time()) + 3600)
+                    return True
+        else:
+            await log.info(f"检测执行正则匹配失败, {text}")
+            return False
