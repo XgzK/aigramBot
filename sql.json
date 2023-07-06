@@ -1011,7 +1011,7 @@
       "match_url": "jd_pointExgBeans_activityUrl",
       "re_url": ".*",
       "level": 4,
-      "head_url": "mc/wxPointShopView/pointExgBeans",
+      "head_url": "mc/wxPointShopView",
       "value1": "export jd_pointExgBeans_activityUrl"
     },
     {
@@ -1061,6 +1061,14 @@
       "re_url": "(https.*?activityType=10069.*?activityId=\\w+.*?)",
       "head_url": "prod/cc",
       "value1": "export jd_lzkj_loreal_lkFollowShop_ur"
+    },
+    {
+      "alias": "签到抽奖（lzkj_loreal）",
+      "name": "jd_lzkj_loreal_sign.js",
+      "match_url": "jd_lzkj_loreal_sign_url",
+      "re_url": "(https.*?activityType=10001.*?activityId=\\w+.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_sign_url"
     }
   ]
 }

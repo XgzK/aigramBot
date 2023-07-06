@@ -32,11 +32,11 @@ class MethodActivities:
         :return:
         :rtype:
         """
-        re_lis: list[str] = re.findall("com/((?:ql/|microDz/)?[a-zA-Z]+/?[a-zA-Z]*)", url)
+        re_lis: list[str] = re.findall("com/((?:ql/|microDz/)?[a-zA-Z]+/?[a-zA-Z]*)/", url)
         if not re_lis:
             return []
         try:
-            event = await self.models.filter(Q(head_url__contains=re_lis[0].rstrip('/'))).order_by("-level")
+            event = await self.models.filter(Q(head_url__contains=re_lis[0])).order_by("-level")
             return event
         except Exception as e:
             await log.error(e)

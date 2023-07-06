@@ -106,18 +106,21 @@ class Core(Ql):
                 list_js += f"{get_list.name} "
                 continue
             name_json = self.ql_json.get(get_list.name)
+            try:
             # 写入配置文件中
-            save = await self.post_configs_save(url=ql.url, auth=ql.Authorization, content=get_list.value,
-                                                path=ql.file)
-            if save['code'] != 200:
-                await log.error(f"青龙返回状态码异常 {save}")
-                return False
-            run = await self.put_crontab_run(url=ql.url, auth=ql.Authorization,
-                                             data=[name_json.get(list(name_json.keys())[0])['id']])
-            if run['code'] != 200:
-                await log.error(f"青龙返回状态码异常 {run}")
-                return False
-            await log.info(f"执行 {get_list.alias} {get_list.name} 参数 {get_list.value}")
+                save = await self.post_configs_save(url=ql.url, auth=ql.Authorization, content=get_list.value,
+                                                    path=ql.file)
+                if save['code'] != 200:
+                    await log.error(f"青龙返回状态码异常 {save}")
+                    return False
+                run = await self.put_crontab_run(url=ql.url, auth=ql.Authorization,
+                                                 data=[name_json.get(list(name_json.keys())[0])['id']])
+                if run['code'] != 200:
+                    await log.error(f"青龙返回状态码异常 {run}")
+                    return False
+                await log.info(f"执行 {get_list.alias} {get_list.name} 参数 {get_list.value}")
+            except Exception as e:
+                await log.error(f"执行青龙发送异常: {e}")
             return True
         # 进入这里就是没有找到
         await log.info(f"{list_js} 系列脚本都没有找到")
