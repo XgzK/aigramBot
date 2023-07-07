@@ -20,6 +20,7 @@ class Activities(Model, TimestampMixin):
 
     delays = fields.IntField(default=5, null=True, index=True, description="间隔秒数")
     level = fields.IntField(default=0, null=True, description="优先级")
+    js_level = fields.IntField(default=5, null=True, description="脚本优先级")
 
     value1 = fields.TextField(null=True, description="脚本参数1")
     value2 = fields.TextField(default=None, null=True, description="脚本参数2")

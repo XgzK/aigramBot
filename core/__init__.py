@@ -1,3 +1,3 @@
 import asyncio
-
-queue = asyncio.Queue()
+# 优先级队列
+queue = asyncio.PriorityQueue()

@@ -861,6 +861,7 @@
     {
       "alias": "组队分豆-瓜分",
       "name": "jd_team_exchange.js",
+      "js_level": 4,
       "value1": "export jd_teamAJ",
       "value2": "export jd_teamFLP"
     },
@@ -960,6 +961,7 @@
       "match_url": "https://cjhydz-isv.isvjcloud.com/microDz/invite/activity/wx/view/index?activityId=jd_cjhydz_microDz_Id",
       "re_url": "activityId=(\\w+)",
       "head_url": "microDz/invite/activity",
+      "js_level": 4,
       "value1": "export jd_cjhydz_microDz_Id"
     },
     {
@@ -969,6 +971,7 @@
       "re_url": "activityId=(\\w+)",
       "head_url": "wxTeam/activity",
       "type_url": "cj",
+      "js_level": 4,
       "value1": "export jd_cjhydz_wxTeam_Id"
     },
     {
@@ -977,6 +980,7 @@
       "match_url": "https://lzkjdz-isv.isvjcloud.com/wxTeam/activity?activityId=jd_lzkjdz_wxTeam_Id",
       "re_url": "activityId=(\\w+)",
       "head_url": "wxTeam/activity",
+      "js_level": 4,
       "type_url": "lz",
       "value1": "export jd_lzkjdz_wxTeam_Id"
     },

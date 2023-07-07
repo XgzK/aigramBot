@@ -70,7 +70,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
                             await self.forward(ht_tx[0])
                             # 准备加入队列任务
                             await log.info(f"加入队列 {export_va}")
-                            await queue.put(export_va)
+                            await queue.put([export_va[0].js_level, export_va])
                             continue
                         else:
                             # 如果没有这里会进入
@@ -93,14 +93,14 @@ class Points(Convert, MethodActivities, MethodRepeats):
                         if export_va:
                             await self.forward(url)
                             await log.info(f"加入队列  {export_va}")
-                            await queue.put(export_va)
+                            await queue.put([export_va[0].js_level, export_va])
                 else:
                     export_va = ExportModel.from_orm(urllib[1][0])
                     # 这里缺失链接
                     export_va.value = urllib[1]
                     await self.forward(urllib[1])
-                    await log.info(f"加入队列 {export_va}")
-                    await queue.put(export_va)
+                    await log.info(f"加入队列 {[export_va]}")
+                    await queue.put([export_va.js_level, [export_va]])
                 return
         except Exception as e:
             await log.debug(f"异常 {e} 触发异常内容 {text}")

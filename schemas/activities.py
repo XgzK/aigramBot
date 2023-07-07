@@ -6,6 +6,7 @@ class ExportModel(BaseModel):
     alias: str
     value: str = None  # export .....
     delays: int
+    js_level: int
 
     class Config:
         orm_mode = True
