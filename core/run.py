@@ -10,8 +10,10 @@ from schemas.activities import ExportModel
 from schemas.conf import QlModel
 from utils.logs import log
 from utils.ql import Ql
+from utils.queue import QueueItem
 
 ql = QlModel.from_orm(conf.ql)
+interval = conf.project.interval
 
 
 class Core(Ql):
@@ -23,6 +25,7 @@ class Core(Ql):
         self.ql_json: dict = {}
         self.ql_tf = False
         self.black_script = conf.activities.black_script
+        self.Delay_dict = dict()
 
     async def die_while(self):
         """
@@ -32,15 +35,19 @@ class Core(Ql):
         """
         while True:
             get_queue = await self.queue.get()
-            tf = await self.detection()
-            if not tf:
-                continue
-            # 开始执行后续任务
-            if ql.url:
-                await self.ql_task_run(get_queue)
-                await asyncio.sleep(2)
+            t = await self.js_delay(get_queue.value)
+            if t:
+                tf = await self.detection()
+                if not tf:
+                    continue
+                # 开始执行后续任务
+                await self.ql_task_run(get_queue.value)
+                await asyncio.sleep(interval)
+            elif self.queue.qsize() < 10:
+                await asyncio.sleep(interval)
             else:
-                await asyncio.sleep(10)
+                await asyncio.sleep(5)
+
 
     async def detection(self):
         """
@@ -107,7 +114,7 @@ class Core(Ql):
                 continue
             name_json = self.ql_json.get(get_list.name)
             try:
-            # 写入配置文件中
+                # 写入配置文件中
                 save = await self.post_configs_save(url=ql.url, auth=ql.Authorization, content=get_list.value,
                                                     path=ql.file)
                 if save['code'] != 200:
@@ -125,3 +132,22 @@ class Core(Ql):
         # 进入这里就是没有找到
         await log.info(f"{list_js} 系列脚本都没有找到")
         return False
+
+    async def js_delay(self, get_queue: list[ExportModel]) -> bool:
+        """
+        延迟队列,如果时间没到将会让脚本延迟回去等待
+        :return:
+        :rtype:
+        """
+        if get_queue[0].name not in self.Delay_dict:
+            # 如果没有存在则添加
+            self.Delay_dict.setdefault(get_queue[0].name, int(time.time()) + int(get_queue[0].delays))
+        else:
+            if self.Delay_dict.get(get_queue[0].name) > int(time.time()):
+                await log.info(f"此任务才执行没多久需回去排队等待: {get_queue}")
+                await self.queue.put(QueueItem(5, get_queue))
+                return False
+
+        self.Delay_dict[get_queue[0].name] = int(time.time()) + int(get_queue[0].delays)
+        return True
+

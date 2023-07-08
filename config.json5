@@ -25,6 +25,7 @@
   },
   "project": {
     "log_level": "INFO", // 日志打印级别 普通用户不用修改
-    "log_path": "logs/" // 日志存储路径
+    "log_path": "logs/", // 日志存储路径
+    "interval": 5 // 脚本执行结束下个任务间隔时间
   }
 }

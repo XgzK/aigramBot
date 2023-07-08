@@ -36,7 +36,8 @@ async def enter():
             jsql = js_sql
     else:
         jsql = js_sql
-    lis = []
+    objects = []
     for i in jsql["activities"]:
-        lis.append(Activities(**i))
-    c = await Activities.bulk_create(lis)
+        objects.append(Activities(**i))
+    c = await Activities.bulk_create(objects=objects)
+    print(c)

@@ -64,7 +64,7 @@ docker cp config.json5 aigramBot:/aigram
       12456777
     ],
     "black_id": [ // 屏蔽ID
-      -100123456789,
+      -1001246788,
       12456777
     ]
   },
@@ -86,7 +86,8 @@ docker cp config.json5 aigramBot:/aigram
   },
   "project": {
     "log_level": "INFO", // 日志打印级别 普通用户不用修改
-    "log_path": "logs/" // 日志存储路径
+    "log_path": "logs/", // 日志存储路径
+    "interval": 5 // 脚本执行完毕停止秒数默认5秒
   }
 }
 ```
@@ -157,4 +158,5 @@ head_url
   > 修复私聊发送活动无法执行问题 
 - > 0.3 内测版本  
   > 添加 js_level 队列优先级,优先执行优先级别高的脚本
-  > 任务队列正在逐渐实现中
+  > 任务队列实现
+  > interval 参数实现脚本执行下个任务等待时间 默认等待五秒

@@ -861,6 +861,7 @@ js_sql = {
         {
             "alias": "组队分豆-瓜分",
             "name": "jd_team_exchange.js",
+            "js_level": 4,
             "value1": "export jd_teamAJ",
             "value2": "export jd_teamFLP"
         },
@@ -886,7 +887,7 @@ js_sql = {
             "alias": "幸运抽奖(超级无线欧莱雅)",
             "name": "jd_lzkj_loreal_draw.js",
             "match_url": "jd_lzkj_loreal_draw_url",
-            "re_url": "(https.*?activityType=(?:10021|10026).*)",
+            "re_url": "(https.*?activityType=(?:10020|10021|10026|10031|10063|10080).*)",
             "head_url": "prod/cc",
             "value1": "export jd_lzkj_loreal_draw_url"
         },
@@ -960,6 +961,7 @@ js_sql = {
             "match_url": "https://cjhydz-isv.isvjcloud.com/microDz/invite/activity/wx/view/index?activityId=jd_cjhydz_microDz_Id",
             "re_url": "activityId=(\\w+)",
             "head_url": "microDz/invite/activity",
+            "js_level": 4,
             "value1": "export jd_cjhydz_microDz_Id"
         },
         {
@@ -969,6 +971,7 @@ js_sql = {
             "re_url": "activityId=(\\w+)",
             "head_url": "wxTeam/activity",
             "type_url": "cj",
+            "js_level": 4,
             "value1": "export jd_cjhydz_wxTeam_Id"
         },
         {
@@ -977,6 +980,7 @@ js_sql = {
             "match_url": "https://lzkjdz-isv.isvjcloud.com/wxTeam/activity?activityId=jd_lzkjdz_wxTeam_Id",
             "re_url": "activityId=(\\w+)",
             "head_url": "wxTeam/activity",
+            "js_level": 4,
             "type_url": "lz",
             "value1": "export jd_lzkjdz_wxTeam_Id"
         },
@@ -1004,6 +1008,71 @@ js_sql = {
             "level": 4,
             "head_url": "babelDiy/Zeus|sign/signActivity|sign/sevenDay",
             "value1": "export jd_sevenDay_activityUrl"
+        },
+        {
+            "alias": "积分兑换京豆 · 超级会员",
+            "name": "jd_pointExgBeans.js",
+            "match_url": "jd_pointExgBeans_activityUrl",
+            "re_url": ".*",
+            "level": 4,
+            "head_url": "mc/wxPointShopView",
+            "value1": "export jd_pointExgBeans_activityUrl"
+        },
+        {
+            "alias": "京东抽奖机加购-KR",
+            "name": "jd_lottery_cart.js",
+            "cutting": "@",
+            "level": 4,
+            "value1": "export JD_Lottery_cart"
+        },
+        {
+            "alias": "txzj 签到",
+            "name": "jd_txzj_sign_in.js",
+            "match_url": "https://txzj-isv.isvjcloud.com/sign_in/home?a=jd_txzj_sign_in_id",
+            "re_url": "a=(\\w+)",
+            "level": 4,
+            "head_url": "sign_in/home",
+            "value1": "export jd_txzj_sign_in_id"
+        },
+        {
+            "alias": "签到有礼（超级无线欧莱雅）",
+            "name": "jd_lzkj_loreal_daySign.js",
+            "match_url": "jd_lzkj_loreal_daySign_url",
+            "re_url": "(https.*?activityType=(?:10023|10040).*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_loreal_daySign_url"
+        },
+        {
+            "alias": "关注商品有礼（超级无线欧莱雅）",
+            "name": "jd_lzkj_loreal_followGoods.js",
+            "match_url": "jd_lzkj_loreal_followGoods_url",
+            "re_url": "(https.*?activityType=10053.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_loreal_followGoods_url"
+        },
+        {
+            "alias": "上上签抽奖（超级无线欧莱雅）",
+            "name": "jd_lzkj_loreal_upperSign.js",
+            "match_url": "jd_lzkj_loreal_upperSign_url",
+            "re_url": "(https.*?activityType=10054.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_loreal_upperSign_url"
+        },
+        {
+            "alias": "关注店铺有礼（超级无线欧莱雅）",
+            "name": "jd_lzkj_loreal_lkFollowShop.js",
+            "match_url": "jd_lzkj_loreal_lkFollowShop_ur",
+            "re_url": "(https.*?activityType=10069.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_loreal_lkFollowShop_ur"
+        },
+        {
+            "alias": "签到抽奖（lzkj_loreal）",
+            "name": "jd_lzkj_loreal_sign.js",
+            "match_url": "jd_lzkj_loreal_sign_url",
+            "re_url": "(https.*?activityType=10001.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_loreal_sign_url"
         }
     ]
 }
