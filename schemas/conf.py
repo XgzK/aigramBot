@@ -31,6 +31,7 @@ class ProjectModel(BaseModel):
     log_path: str = "logs/"
     Version: float = 0.3
     Identity: str = "内测版本"
+    interval: int = 5
 
 
 class ConfModel(BaseModel):
