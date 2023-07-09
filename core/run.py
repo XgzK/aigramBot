@@ -4,6 +4,8 @@
 import asyncio
 import time
 
+from pydantic import ValidationError
+
 from core import queue
 from init.conf import conf
 from schemas.activities import ExportModel
@@ -11,8 +13,10 @@ from schemas.conf import QlModel
 from utils.logs import log
 from utils.ql import Ql
 from utils.queue import QueueItem
-
-ql = QlModel.from_orm(conf.ql)
+try:
+    ql = QlModel.from_orm(conf.ql)
+except ValidationError as exc:
+    print(exc.json())
 interval = conf.project.interval
 
 
