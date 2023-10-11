@@ -105,6 +105,7 @@ js_sql = {
             "name": "jd_wxFansInterActionActivity.js",
             "match_url": "https://lzkjdz-isv.isvjd.com/wxFansInterActionActivity/activity?activityId=jd_wxFansInterActionActivity_activityId",
             "re_url": "activityId=(\\w+)",
+            "cutting": "&",
             "head_url": "wxFansInterActionActivity/activity",
             "value1": "export jd_wxFansInterActionActivity_activityId"
         },
@@ -1073,6 +1074,150 @@ js_sql = {
             "re_url": "(https.*?activityType=10001.*?activityId=\\w+.*?)",
             "head_url": "prod/cc",
             "value1": "export jd_lzkj_loreal_sign_url"
+        },
+        {
+            "alias": "lzkj_10079积分兑换",
+            "name": "jd_lzkj_10079_jfdh.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10079&activityId=jd_lzkj_10079_jfdh_Ids",
+            "cutting": "&",
+            "re_url": "(https.*?activityType=10079.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10079_jfdh_Ids"
+        },
+        {
+            "alias": "lzkj_10070邀请好友入会",
+            "name": "jd_lzkj_10070_yqhyrh.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10070&activityId=jd_lzkj_10070_yqhyrh_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10070.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10070_yqhyrh_activityId"
+        },
+        {
+            "alias": "lzkj_10069关注店铺有礼",
+            "name": "jd_lzkj_10069_gzyl.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10069&activityId=jd_lzkj_10069_gzyl_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10069.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10069_gzyl_activityId"
+        },
+        {
+            "alias": "lzkj_10068邀请关注店铺有礼",
+            "name": "jd_lzkj_10068_yqgzdpyl.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10068&activityId=jd_lzkj_10068_yqgzdpyl_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10068.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10068_yqgzdpyl_activityId"
+        },
+        {
+            "alias": "lzkj_10058店铺礼包",
+            "name": "jd_lzkj_10058_dplb.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10058&activityId=jd_lzkj_10058_dplb_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10058.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10058_dplb_activityId"
+        },
+        {
+            "alias": "lzkj_10054上上签",
+            "name": "jd_lzkj_10054_ssq.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10054&activityId=jd_lzkj_10054_ssq_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10054.*?activityId=\\w+.*?)",
+            "cutting": "&",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10054_ssq_Ids"
+        },
+        {
+            "alias": "lzkj_10053关注商品有礼",
+            "name": "jd_lzkj_10053_gzspyl.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10053&activityId=jd_lzkj_10053_gzspyl_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10053.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10053_gzspyl_activityId"
+        },
+        {
+            "alias": "lzkj_10044投票有礼抽奖",
+            "name": "jd_lzkj_10044_tpyl.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10044&activityId=jd_lzkj_10044_tpyl_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10044.*?activityId=\\w+.*?)",
+            "cutting": "&",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10044_tpyl_Ids"
+        },
+        {
+            "alias": "lzkj_10043分享有礼",
+            "name": "jd_lzkj_10043_fxyl.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10043&activityId=jd_lzkj_10043_fxyl_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10043.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10043_fxyl_activityId"
+        },
+        {
+            "alias": "lzkj_10040签到",
+            "name": "jd_lzkj_10040_qrqd.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10043&activityId=jd_lzkj_10040_qrqd_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10040.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10040_qrqd_Ids"
+        },
+        {
+            "alias": "lzkj_10038邀请好友帮砍价",
+            "name": "jd_lzkj_10038_lrkj.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10038&activityId=jd_lzkj_10038_lrkj_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10038.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10038_lrkj_activityId"
+        },
+        {
+            "alias": "lzkj_10033组队瓜分",
+            "name": "jd_lzkj_10033_zdgf.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10033&activityId=jd_lzkj_10033_zdgf_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10033.*?activityId=\\w+.*?)",
+            "cutting": "&",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10033_zdgf_Ids"
+        },
+        {
+            "alias": "lzkj_10026积分抽奖",
+            "name": "jd_lzkj_10026_jfcj.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10026&activityId=jd_lzkj_10026_jfcj_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10026.*?activityId=\\w+.*?)",
+            "cutting": "&",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10026_jfcj_Ids"
+        },
+        {
+            "alias": "lzkj_10024加购有礼",
+            "name": "jd_lzkj_10024_jgyl.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10026&activityId=jd_lzkj_10024_jgyl_activityId&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10024.*?activityId=\\w+.*?)",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10024_jgyl_activityId"
+        },
+        {
+            "alias": "lzkj_10023日历签到",
+            "name": "jd_lzkj_10023_rlqd.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10023&activityId=jd_lzkj_10023_rlqd_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10023.*?activityId=\\w+.*?)",
+            "cutting": "&",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10023_rlqd_Ids"
+        },
+        {
+            "alias": "lzkj_10021大转盘抽奖",
+            "name": "jd_lzkj_10021_dazhuanpan.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10021&activityId=jd_lzkj_10021_dazhuanpan_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10021.*?activityId=\\w+.*?)",
+            "cutting": "&",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10021_dazhuanpan_Ids"
+        },
+        {
+            "alias": "lzkj_10020九宫格抽奖",
+            "name": "jd_lzkj_10020_jgkcq.js",
+            "match_url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10020&activityId=jd_lzkj_10020_jgkcq_Ids&nodeId=101001&prd=cjwx",
+            "re_url": "(https.*?activityType=10023.*?activityId=\\w+.*?)",
+            "cutting": "&",
+            "head_url": "prod/cc",
+            "value1": "export jd_lzkj_10020_jgkcq_Ids"
         }
     ]
 }
