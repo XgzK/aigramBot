@@ -24,7 +24,7 @@ class QlModel(BaseModel):
     Authorization: str = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ProjectModel(BaseModel):
@@ -42,4 +42,4 @@ class ConfModel(BaseModel):
     project: ProjectModel
 
     class Config:
-        orm_mode = True
+        from_attributes = True

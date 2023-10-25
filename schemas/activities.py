@@ -9,4 +9,4 @@ class ExportModel(BaseModel):
     js_level: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True

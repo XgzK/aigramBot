@@ -40,7 +40,7 @@
       "value1": "export jd_wxShopFollowActivity_activityUrl"
     },
     {
-      "alias": "LZ刮刮乐抽奖通用活动-加密",
+      "alias": "店铺抽奖中心 · 超级无线",
       "name": "jd_drawCenter.js",
       "match_url": "https://lzkj-isv.isvjd.com/drawCenter/activity/entry.html?activityId=jd_drawCenter_activityId",
       "re_url": "activityId=(\\w+)",
@@ -508,13 +508,11 @@
       "value1": "export jd_cjwxShopFollowActivity_activityId"
     },
     {
-      "alias": "LZ每日抢好礼通用活动",
+      "alias": "每日抢好礼 · 超级无线/超级会员",
       "name": "jd_daily.js",
-      "match_url": "https://lzkj-isv.isvjd.com/activity/daily/wx/indexPage?activityId=jd_daily_activityId",
-      "re_url": "activityId=(\\w+)",
+      "match_url": "jd_daily_activityUrl",
+      "re_url": ".*",
       "head_url": "activity/daily",
-      "cutting": "&",
-      "type_url": "lz",
       "value1": "export jd_daily_activityId"
     },
     {
@@ -691,10 +689,10 @@
     {
       "alias": "邀请入会赢好礼·京耕",
       "name": "jd_jinggeng_showInviteJoin.js",
-      "match_url": "jd_showInviteJoin_activityUrl",
+      "match_url": "jd_jinggeng_showInviteJoin_activityUrl",
       "re_url": ".*",
       "head_url": "ql/front/showInviteJoin",
-      "value1": "export jd_showInviteJoin_activityUrl"
+      "value1": "export jd_jinggeng_showInviteJoin_activityUrl"
     },
     {
       "alias": "M组队瓜分",
@@ -1071,7 +1069,7 @@
       "alias": "签到抽奖（lzkj_loreal）",
       "name": "jd_lzkj_loreal_sign.js",
       "match_url": "jd_lzkj_loreal_sign_url",
-      "re_url": "(https.*?activityType=10001.*?activityId=\\w+.*?)",
+      "re_url": "(https.*?activityType=(?:10001|10002|10003|10004).*?activityId=\\w+.*?)",
       "head_url": "prod/cc",
       "value1": "export jd_lzkj_loreal_sign_url"
     },
@@ -1218,6 +1216,149 @@
       "cutting": "&",
       "head_url": "prod/cc",
       "value1": "export jd_lzkj_10020_jgkcq_Ids"
+    },
+    {
+      "alias": "店铺关注有礼",
+      "name": "jd_drawShopGift.js",
+      "cutting": "_",
+      "value1": "export jd_drawShopGift_argv"
+    },
+    {
+      "alias": "飞鹤集成长值赢千元礼包",
+      "name": "jd_fh_draw.js",
+      "value1": "export jd_fh_id"
+    },
+    {
+      "alias": "盖楼有礼 · 京耕",
+      "name": "jd_jinggeng_floor.js",
+      "match_url": "jd_jinggeng_floor_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/floor",
+      "value1": "export jd_jinggeng_floor_activityUrl"
+    },
+    {
+      "alias": "惊喜开盲盒 · 京耕",
+      "name": "jd_jinggeng_loadBlindBox.js",
+      "match_url": "jd_jinggeng_loadBlindBox_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/loadBlindBox",
+      "value1": "export jd_jinggeng_loadBlindBox_activityUrl"
+    },
+    {
+      "alias": "加购有礼 · 京耕",
+      "name": "jd_jinggeng_showCart.js",
+      "match_url": "jd_jinggeng_showCart_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/showCart",
+      "value1": "export jd_jinggeng_showCart_activityUrl"
+    },
+    {
+      "alias": "大转盘抽奖 · 京耕",
+      "name": "jd_jinggeng_showDrawOne.js",
+      "match_url": "jd_jinggeng_showDrawOne_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/showDrawOne",
+      "value1": "export jd_jinggeng_showDrawOne_activityUrl"
+    },
+    {
+      "alias": "关注店铺有礼 · 京耕",
+      "name": "jd_jinggeng_showFavoriteShop.js",
+      "match_url": "jd_jinggeng_showFavoriteShop_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/showFavoriteShop",
+      "value1": "export jd_jinggeng_showFavoriteShop_activityUrl"
+    },
+    {
+      "alias": "组队瓜分奖品 · 京耕",
+      "name": "jd_jinggeng_showPartition.js",
+      "match_url": "jd_jinggeng_showPartition_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/showPartition",
+      "value1": "export jd_jinggeng_showPartition_activityUrl"
+    },
+    {
+      "alias": "完善资料有礼 · 京耕",
+      "name": "jd_jinggeng_showPerfectInformation.js",
+      "match_url": "jd_jinggeng_showPerfectInformation_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/showPerfectInformation",
+      "value1": "export jd_jinggeng_showPerfectInformation_activityUrl"
+    },
+    {
+      "alias": "店铺签到 · 京耕",
+      "name": "jd_jinggeng_showSign.js",
+      "match_url": "jd_jinggeng_showSign_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/showSign",
+      "value1": "export jd_jinggeng_showSign_activityUrl"
+    },
+    {
+      "alias": "九宫格抽奖 · 京耕",
+      "name": "jd_jinggeng_showTaskDraw.js",
+      "match_url": "jd_jinggeng_showTaskDraw_activityUrl",
+      "re_url": ".*",
+      "head_url": "ql/front/showTaskDraw",
+      "value1": "export jd_jinggeng_showTaskDraw_activityUrl"
+    },
+    {
+      "alias": "知识超人（超级无线）",
+      "name": "jd_lzkj_loreal_know.js",
+      "match_url": "jd_lzkj_loreal_know_url",
+      "re_url": "(https.*?activityType=10039.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_know_url"
+    },
+    {
+      "alias": "组队瓜分奖品（超级无线）",
+      "name": "jd_lzkj_loreal_organizeTeam.js",
+      "match_url": "jd_lzkj_loreal_organizeTeam_url",
+      "re_url": "(https.*?activityType=10033.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_organizeTeam_url"
+    },
+    {
+      "alias": "完善有礼（超级无线）",
+      "name": "jd_lzkj_loreal_perfectInfo.js",
+      "match_url": "jd_lzkj_loreal_perfectInfo_url",
+      "re_url": "(https.*?activityType=10049.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_perfectInfo_url"
+    },
+    {
+      "alias": "积分兑换（超级无线）",
+      "name": "jjd_lzkj_loreal_pointsExchange.js",
+      "match_url": "jd_lzkj_loreal_perfectInfo_url",
+      "re_url": "(https.*?activityType=10079.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_perfectInfo_url"
+    },
+    {
+      "alias": "分享有礼（超级无线欧莱雅）",
+      "name": "jjd_lzkj_loreal_pointsExchange.js",
+      "match_url": "jd_lzkj_loreal_share_url",
+      "re_url": "(https.*?activityType=10043.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_share_url"
+    },
+    {
+      "alias": "店铺礼包（超级无线）",
+      "name": "jd_lzkj_loreal_shopGift.js",
+      "match_url": "jd_lzkj_loreal_shopGift_url",
+      "re_url": "(https.*?activityType=10058.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_shopGift_url"
+    },
+    {
+      "alias": "积分兑换红包 · 超级会员",
+      "name": "jd_pointExgHb.js",
+      "head_url": "mc/wxPointShopView",
+      "value1": "export jd_pointExgHb_activityUrl"
+    },
+    {
+      "alias": "积分兑换实物 · 超级会员",
+      "name": "jd_pointExgHb.js",
+      "head_url": "mc/wxPointShopView",
+      "value1": "export jd_pointExgHb_activityUrl"
     }
   ]
 }

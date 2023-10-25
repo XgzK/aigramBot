@@ -3,6 +3,7 @@ import os
 import time
 
 import aiofiles
+import json5
 
 from schemas.conf import ConfModel
 
@@ -13,9 +14,12 @@ while not os.path.exists("config.json5"):
     print("根据提示完成配置")
     time.sleep(20)
 if os.path.exists("configtest.json5"):
-    conf: ConfModel = ConfModel.parse_file("configtest.json5")
+    with open("configtest.json5", "r", encoding="utf8") as f:
+        data = json5.load(f)
 else:
-    conf: ConfModel = ConfModel.parse_file("config.json5")
+    with open("config.json5", "r", encoding="utf8") as f:
+        data = json5.load(f)
+conf: ConfModel = ConfModel(**data)
 
 
 async def read(file: str) -> json:
