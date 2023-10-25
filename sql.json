@@ -1063,7 +1063,7 @@
       "match_url": "jd_lzkj_loreal_lkFollowShop_url",
       "re_url": "(https.*?activityType=10069.*?activityId=\\w+.*?)",
       "head_url": "prod/cc",
-      "value1": "export jd_lzkj_loreal_lkFollowShop_ur"
+      "value1": "export jd_lzkj_loreal_lkFollowShop_url"
     },
     {
       "alias": "签到抽奖（lzkj_loreal）",
