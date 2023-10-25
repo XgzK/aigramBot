@@ -13,7 +13,10 @@ while not os.path.exists("config.json5"):
     print("python3 conf.py")
     print("根据提示完成配置")
     time.sleep(20)
-if os.path.exists("configtest.json5"):
+if os.path.exists("/root/config.json5"):
+    with open("/root/config.json5", "r", encoding="utf8") as f:
+        data = json5.load(f)
+elif os.path.exists("configtest.json5"):
     with open("configtest.json5", "r", encoding="utf8") as f:
         data = json5.load(f)
 else:
