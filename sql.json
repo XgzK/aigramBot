@@ -348,12 +348,10 @@
     {
       "alias": "完善信息有礼",
       "name": "jd_completeInfoActivity.js",
-      "match_url": "jd_completeInfoActivity_activityUrl/wx/completeInfoActivity/view/activity?activityId=jd_completeInfoActivity_activityId&venderId=jd_completeInfoActivity_venderId",
-      "re_url": "(https://.*?com).*?activityId=(\\w+)&venderId=(\\d+)",
+      "match_url": "jd_completeInfoActivity_activityUrl",
+      "re_url": "(https://.*)",
       "head_url": "wx/completeInfoActivity",
-      "value1": "export jd_completeInfoActivity_activityUrl",
-      "value2": "export jd_completeInfoActivity_activityId",
-      "value3": "export jd_completeInfoActivity_venderId"
+      "value1": "export jd_completeInfoActivity_activityUrl"
     },
     {
       "alias": "生日礼包-JK",
@@ -1317,6 +1315,14 @@
       "value1": "export jd_lzkj_loreal_organizeTeam_url"
     },
     {
+      "alias": "组队瓜分奖品（超级无线）",
+      "name": "jd_lzkj_loreal_dailyGrabs.js",
+      "match_url": "jd_lzkj_loreal_dailyGrabs_url",
+      "re_url": "(https.*?activityType=10022.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_dailyGrabs_url"
+    },
+    {
       "alias": "完善有礼（超级无线）",
       "name": "jd_lzkj_loreal_perfectInfo.js",
       "match_url": "jd_lzkj_loreal_perfectInfo_url",
@@ -1326,11 +1332,19 @@
     },
     {
       "alias": "积分兑换（超级无线）",
-      "name": "jjd_lzkj_loreal_pointsExchange.js",
-      "match_url": "jd_lzkj_loreal_perfectInfo_url",
+      "name": "jd_lzkj_loreal_pointsExchange.js",
+      "match_url": "jd_lzkj_loreal_pointsExchange_url",
       "re_url": "(https.*?activityType=10079.*?)",
       "head_url": "prod/cc",
-      "value1": "export jd_lzkj_loreal_perfectInfo_url"
+      "value1": "export jd_lzkj_loreal_pointsExchange_url"
+    },
+    {
+      "alias": "邀请关注店铺有礼（超级无线）",
+      "name": "jd_lzkj_loreal_inviteFollowShop.js",
+      "match_url": "jd_lzkj_loreal_inviteFollowShop_url",
+      "re_url": "(https.*?activityType=10068.*?)",
+      "head_url": "prod/cc",
+      "value1": "export jd_lzkj_loreal_inviteFollowShop_url"
     },
     {
       "alias": "分享有礼（超级无线欧莱雅）",
