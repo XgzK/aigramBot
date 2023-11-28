@@ -7,18 +7,17 @@ import json5
 
 from schemas.conf import ConfModel
 
-while not os.path.exists("/root/config.json5"):
-    print("没有检测到文件存在请按照下面提示操作")
-    print("docker exec -i -t aigramBot /bin/sh")
-    print("cd /root")
-    print("python3 conf.py")
-    print("根据提示完成配置")
+while True:
+    if os.path.exists("config.json5") or os.path.exists("/root/config.json5"):
+        break
+    print("没有检测到文件存在请按照下面提示操作\n"
+          "docker exec -i -t aigramBot /bin/sh\n"
+          "cd /root\n"
+          "python3 conf.py\n"
+          "根据提示完成配置")
     time.sleep(20)
 if os.path.exists("/root/config.json5"):
     with open("/root/config.json5", "r", encoding="utf8") as f:
-        data = json5.load(f)
-elif os.path.exists("configtest.json5"):
-    with open("configtest.json5", "r", encoding="utf8") as f:
         data = json5.load(f)
 else:
     with open("config.json5", "r", encoding="utf8") as f:

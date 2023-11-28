@@ -39,13 +39,15 @@ class Core(Ql):
         """
         while True:
             get_queue = await self.queue.get()
-            t = await self.js_delay(get_queue.value)
+            if not get_queue:
+                continue
+            t = await self.js_delay(get_queue[0].value)
             if t:
                 tf = await self.detection()
                 if not tf:
                     continue
                 # 开始执行后续任务
-                await self.ql_task_run(get_queue.value)
+                await self.ql_task_run(get_queue)
                 await asyncio.sleep(interval)
             elif self.queue.qsize() < 10:
                 await asyncio.sleep(interval)
@@ -104,6 +106,7 @@ class Core(Ql):
         :return:
         :rtype:
         """
+        # 用于记录没有存在的脚本
         list_js = ""
         # 遍历活动任务
         for get_list in get_queue:
@@ -114,9 +117,11 @@ class Core(Ql):
 
             # 如果不存在则跳过
             if get_list.name not in self.ql_json:
-                list_js += f"{get_list.name} "
+                list_js += f"{get_list.name}"
                 continue
+            # 获取脚本信息
             name_json = self.ql_json.get(get_list.name)
+            await log.info(f"开始写入青龙配置文件: 写入值{get_list.value} 执行的脚本: {name_json}")
             try:
                 # 写入配置文件中
                 save = await self.post_configs_save(url=ql.url, auth=ql.Authorization, content=get_list.value,
@@ -129,7 +134,7 @@ class Core(Ql):
                 if run['code'] != 200:
                     await log.error(f"青龙返回状态码异常 {run}")
                     return False
-                await log.info(f"执行 {get_list.alias} {get_list.name} 参数 {get_list.value}")
+                await log.info(f"发送执行命令成功 活动名称: {get_list.alias} 脚本名称: {get_list.name} 参数 {get_list.value}")
             except Exception as e:
                 await log.error(f"执行青龙发送异常: {e}")
             return True

@@ -39,5 +39,4 @@ async def enter():
     objects = []
     for i in jsql["activities"]:
         objects.append(Activities(**i))
-    c = await Activities.bulk_create(objects=objects)
-    print(c)
+    await Activities.bulk_create(objects=objects)

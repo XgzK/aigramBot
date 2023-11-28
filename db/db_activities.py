@@ -36,7 +36,10 @@ class MethodActivities:
         if not re_lis:
             return []
         try:
-            event = await self.models.filter(Q(head_url__contains=re_lis[0])).order_by("-level")
+            if "prod/cc" in re_lis[0]:
+                event = await self.models.filter(Q(re_url__contains=re.search(r'activityType=(\d+)', url).group(1))).order_by("-level")
+            else:
+                event = await self.models.filter(Q(head_url__contains=re_lis[0])).order_by("-level")
             return event
         except Exception as e:
             await log.error(e)

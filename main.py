@@ -24,7 +24,3 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main=main())
-    # loop = asyncio.new_event_loop()
-    # asyncio.set_event_loop(loop)
-    # tasks = [loop.create_task(init()), loop.create_task(main_bot()), loop.create_task(cores.die_while())]
-    # loop.run_until_complete(asyncio.gather(*tasks))

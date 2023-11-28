@@ -15,22 +15,6 @@ router = Router()
 poni = Points()
 
 
-# @router.message(Command(commands=["start", "id"]))
-# async def command_start_handler(message: Message) -> None:
-#     """
-#     This handler receive messages with `/start` command
-#     """
-#     if message.chat.type != 'private':
-#         if message.text == "/id":
-#             text = f"Chat_type: {message.chat.type}\n" \
-#                    f"Chat_id: {message.chat.id}\n" \
-#                    f"Chat_title: {message.chat.title}\n"
-#             await message.answer(text)
-#     else:
-#         print(message)
-#         await message.answer(f"Hello, <b>{message.from_user.full_name}!</b>")
-
-
 @router.message(and_f(aiogram.F.chat.type == 'private', aiogram.F.text))
 async def private_handler(message: types.Message) -> None:
     """
@@ -46,11 +30,7 @@ async def private_handler(message: types.Message) -> None:
                    f"转发名称: {message.forward_from_chat.title}"
             await message.answer(text=text)
         await poni.pie(message.text)
-        # print("接收私聊消息和文本", message.json())
-        # Send copy of the received message
-        # await message.send_copy(chat_id=message.chat.id)
     except TypeError:
-        # But not all the types is supported to be copied so need to handle it
         await message.answer("Nice try!")
 
 
@@ -63,17 +43,11 @@ async def private_handler(message: types.Message) -> None:
         # 屏蔽转发的id和转发群组的ID
         if message.forward_from_chat and message.forward_from_chat.id in black_id:
             await log.debug(f"{message.forward_from_chat.id} 设置了屏蔽或转发将自动屏蔽该内容")
-            return
-        if message.chat.id in black_id:
+        elif message.chat.id in black_id:
             await log.debug(f"{message.chat.id} 设置了屏蔽或转发将自动屏蔽该内容")
-            return
-        # await log.debug(f"所在ID: {message.chat.id}\t"
-        #                 f"所在name: {message.chat.title}\t"
-        #                 f"{ f'转发ID: {message.forward_from_chat.id}' if message.forward_from_chat else ''}\t"
-        #                 f"{ f'转发name: {message.forward_from_chat.title}' if message.forward_from_chat else ''}")
-        await poni.pie(message.text)
+        else:
+            await poni.pie(message.text)
     except TypeError:
-        # But not all the types is supported to be copied so need to handle it
         await message.answer("Nice try!")
 
 

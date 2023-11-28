@@ -44,15 +44,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
                     await log.debug("屏蔽关键字存在跳过执行")
                     return
             # 识别正则表达式中是否有关键字信息
-            re_identify = re.findall("(?:https://.*?com/|export)+", text)
-            if not re_identify:
-                return
-            tf = False
-            for https in re_identify:
-                if "https" in https:
-                    tf = True
-                    break
-            if tf:
+            if "https://" in text:
                 # 转换url
                 for url in tg_text.split("\n"):
                     # 过滤一些关键字
@@ -70,14 +62,16 @@ class Points(Convert, MethodActivities, MethodRepeats):
                         if export_va:
                             await self.forward(ht_tx[0])
                             # 准备加入队列任务
-                            await log.info(f"加入队列 {export_va}")
+                            await log.info(f"本次加入队列的有如下")
+                            for i in export_va:
+                                await log.info(f"活动名称: {i.alias} 脚本名称: {i.name} 值: {i.value}")
                             await queue.put(QueueItem(export_va[0].js_level, export_va))
                             continue
                         else:
                             # 如果没有这里会进入
                             await log.info(f"没有匹配到对应任务 {ht_tx}")
             else:
-                tg_list = re.findall("(export [\w_]+)=\"?([\w:/\.\-@&?=]+)\"?", tg_text)
+                tg_list = re.findall("(export [\w_]+)=\"?([\w:/.\-@&?=]+)\"?", tg_text)
                 if not tg_list:
                     return
                 select = await self.or_select(tg_list[0][0])
@@ -86,22 +80,17 @@ class Points(Convert, MethodActivities, MethodRepeats):
                     return
                 urllib = await self.va_url(select, tg_list)
                 if urllib[0]:
-                    for url in urllib[1]:
+                    for url in urllib[0]:
                         if not await self.repeat(url):
                             return
                         export_va = await self.convert_url([url])
                         # 下面就是加入队列了
                         if export_va:
                             await self.forward(url)
-                            await log.info(f"加入队列  {export_va}")
+                            await log.info(f"本次加入队列的有如下")
+                            for i in export_va:
+                                await log.info(f"活动名称: {i.alias} 脚本名称: {i.name} 值: {i.value}")
                             await queue.put(QueueItem(export_va[0].js_level, export_va))
-                else:
-                    export_va = ExportModel.from_orm(urllib[1][0])
-                    # 这里缺失链接
-                    export_va.value = urllib[1]
-                    await self.forward(urllib[1])
-                    await log.info(f"加入队列 {[export_va]}")
-                    await queue.put(QueueItem(export_va[0].js_level, export_va))
                 return
         except Exception as e:
             await log.debug(f"异常 {e} 触发异常内容 {text}")
@@ -112,7 +101,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
         :param https:
         :type https:
         :return:
-        :rtype:
+        :rtype: list[ExportModel]
         """
         export_mo = []
         for i in https:
@@ -124,7 +113,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
                     continue
                 re_expo = re.findall(activ.re_url, i)
                 if re_expo:
-                    exp = ExportModel.from_orm(activ)
+                    exp = ExportModel.model_validate(activ)
                     if not activ.value2:
                         # 对那些需要两个组成一个
                         if activ.cutting and type(re_expo[0]) != str:
@@ -146,8 +135,9 @@ class Points(Convert, MethodActivities, MethodRepeats):
         :return:
         :rtype:
         """
-        for chat_id in self.chat_id_list:
-            await self.bot.send_message(chat_id=chat_id, disable_web_page_preview=True, text=text)
+        if self.chat_id_list:
+            for chat_id in self.chat_id_list:
+                await self.bot.send_message(chat_id=chat_id, disable_web_page_preview=True, text=text)
 
     async def repeat(self, text: str) -> bool:
         """
