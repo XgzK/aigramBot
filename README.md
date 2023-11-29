@@ -160,3 +160,5 @@ head_url
   > 添加 js_level 队列优先级,优先执行优先级别高的脚本
   > 任务队列实现  
   > interval 参数实现脚本执行下个任务等待时间 默认等待五秒
+- > 0.3 内测版本
+  >  更正 jd_daily.js jd_drawShopGift.js 

@@ -14,7 +14,7 @@ from utils.logs import log
 from utils.ql import Ql
 from utils.queue import QueueItem
 try:
-    ql = QlModel.from_orm(conf.ql)
+    ql = QlModel.model_validate(conf.ql)
 except ValidationError as exc:
     print(exc.json())
 interval = conf.project.interval
@@ -41,7 +41,7 @@ class Core(Ql):
             get_queue = await self.queue.get()
             if not get_queue:
                 continue
-            t = await self.js_delay(get_queue[0].value)
+            t = await self.js_delay(get_queue.value)
             if t:
                 tf = await self.detection()
                 if not tf:
