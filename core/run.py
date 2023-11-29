@@ -43,11 +43,11 @@ class Core(Ql):
                 continue
             t = await self.js_delay(get_queue.value)
             if t:
-                tf = await self.detection()
-                if not tf:
-                    continue
+                # tf = await self.detection()
+                # if not tf:
+                #     continue
                 # 开始执行后续任务
-                await self.ql_task_run(get_queue)
+                await self.ql_task_run(get_queue.value)
                 await asyncio.sleep(interval)
             elif self.queue.qsize() < 10:
                 await asyncio.sleep(interval)
