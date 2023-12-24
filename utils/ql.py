@@ -1,6 +1,8 @@
+import json
 import re
 
 from utils.aioclient import HTTPClient
+from utils.logs import log
 
 
 class Ql(HTTPClient):
@@ -24,12 +26,16 @@ class Ql(HTTPClient):
         {'code': 400, 'message': 'client_id或client_seret有误'}
         {'code': 401, 'message': 'UnauthorizedError'}
         """
-        headers = {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json;charset=UTF-8'
-        }
-        tk = await self.get(url=url + "/open/auth/token", headers=headers, params=params)
-        return tk
+        try:
+            headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8'
+            }
+            tk = await self.get(url=url + "/open/auth/token", headers=headers, params=params)
+            return tk
+        except Exception as e:
+            await log.error(f"/open/auth/token接口异常: {e}")
+            return {}
 
     async def get_crontab(self, url: str, auth) -> dict:
         """
@@ -149,6 +155,9 @@ class Ql(HTTPClient):
         比如 10版本是 _id 11版本是 id
         13后几个版本 外边多了层[]
         """
+        if crontab["code"] != 200:
+            await log.info(f"获取任务列表失败: {json.dumps(crontab)}")
+            return None
         for js_list in crontab['data']['data'] if 'data' in crontab['data'] else crontab['data']:
 
             re_filter = re.findall('task .*?(\w+\.(?:py|js|ts))', js_list['command'])

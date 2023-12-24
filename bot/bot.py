@@ -80,5 +80,6 @@ async def main_bot() -> None:
         await log.error("无法加入群组 找 https://t.me/BotFather 发送 /setjoingroups 选择 @{a.username} 选择 Enable")
     if not a.can_read_all_group_messages:
         await log.error(f"无法接收全部消息 找 https://t.me/BotFather 发送 /setprivacy 选择 @{a.username} 选择 DISABLED")
+    await log.info(f"机器人名称: @{a.username} 已经上线")
     # And the run events dispatching
     await dp.start_polling(bot, polling_timeout=100)

@@ -13,16 +13,17 @@ from schemas.conf import QlModel
 from utils.logs import log
 from utils.ql import Ql
 from utils.queue import QueueItem
-try:
-    ql = QlModel.model_validate(conf.ql)
-except ValidationError as exc:
-    print(exc.json())
-interval = conf.project.interval
 
 
 class Core(Ql):
 
     def __init__(self):
+        try:
+            self.ql = QlModel.model_validate(conf.ql)
+        except ValidationError as exc:
+            log.error("获取青龙参数异常")
+            print(exc.json())
+        self.interval = conf.project.interval
         super().__init__()
         self.queue = queue
         self.new_time: int = 0  # ql下次任务列表获取时间
@@ -48,12 +49,11 @@ class Core(Ql):
                     continue
                 # 开始执行后续任务
                 await self.ql_task_run(get_queue.value)
-                await asyncio.sleep(interval)
+                await asyncio.sleep(self.interval)
             elif self.queue.qsize() < 10:
-                await asyncio.sleep(interval)
+                await asyncio.sleep(self.interval)
             else:
                 await asyncio.sleep(5)
-
 
     async def detection(self):
         """
@@ -61,40 +61,43 @@ class Core(Ql):
         :return:
         :rtype:
         """
-        if ql.url == "" or not ql.url:
+        if self.ql.url == "" or not self.ql.url:
             await log.info("填写青龙配置缺失")
             return False
         ti = int(time.time())
         # 先检测是否过期或者或者需要获取青龙的
-        if ql.expiration <= ti:
+        if self.ql.expiration <= ti:
             await log.info("获取青龙auth")
             params = {
-                'client_id': ql.Client_ID,
-                'client_secret': ql.Client_Secret
+                'client_id': self.ql.Client_ID,
+                'client_secret': self.ql.Client_Secret
             }
             # 如果过期将会重新获取
-            ql_tk = await self.token(ql.url, params)
-            if ql_tk['code'] != 200:
+            ql_tk = await self.token(self.ql.url, params)
+            if ql_tk == {} or ql_tk['code'] != 200:
                 return False
             # 写入模型中
-            ql.Authorization = f"{ql_tk['data']['token_type']} {ql_tk['data']['token']}"
-            ql.expiration = ql_tk['data']['expiration']
+            self.ql.Authorization = f"{ql_tk['data']['token_type']} {ql_tk['data']['token']}"
+            self.ql.expiration = ql_tk['data']['expiration']
 
         # 获取青龙的任务列表
         if self.new_time <= ti:
             await log.info("获取任务列表")
-            self.ql_json = await self.get_crontab_json(url=ql.url, auth=ql.Authorization)
+            ql_json = await self.get_crontab_json(url=self.ql.url, auth=self.ql.Authorization)
+            if ql_json is None:
+                return False
+            self.ql_json = ql_json
             self.new_time = ti + 3600
         # 检测青龙配置文件是否存在
         if not self.ql_tf:
-            ql_path = await self.get_configs_files(url=ql.url, auth=ql.Authorization)
+            ql_path = await self.get_configs_files(url=self.ql.url, auth=self.ql.Authorization)
             if ql_path['code'] != 200:
                 pass
             for file in ql_path['data']:
-                if file['title'] == ql.file:
+                if file['title'] == self.ql.file:
                     self.ql_tf = True
                     return True
-            await log.error(f"青龙配置文件中没有检测到 {ql.file} 文件 请参考说明文档有关青龙设置部分")
+            await log.error(f"青龙配置文件中没有检测到 {self.ql.file} 文件 请参考说明文档有关青龙设置部分")
             return False
         return True
 
@@ -124,17 +127,18 @@ class Core(Ql):
             await log.info(f"开始写入青龙配置文件: 写入值{get_list.value} 执行的脚本: {name_json}")
             try:
                 # 写入配置文件中
-                save = await self.post_configs_save(url=ql.url, auth=ql.Authorization, content=get_list.value,
-                                                    path=ql.file)
+                save = await self.post_configs_save(url=self.ql.url, auth=self.ql.Authorization, content=get_list.value,
+                                                    path=self.ql.file)
                 if save['code'] != 200:
                     await log.error(f"青龙返回状态码异常 {save}")
                     return False
-                run = await self.put_crontab_run(url=ql.url, auth=ql.Authorization,
+                run = await self.put_crontab_run(url=self.ql.url, auth=self.ql.Authorization,
                                                  data=[name_json.get(list(name_json.keys())[0])['id']])
                 if run['code'] != 200:
                     await log.error(f"青龙返回状态码异常 {run}")
                     return False
-                await log.info(f"发送执行命令成功 活动名称: {get_list.alias} 脚本名称: {get_list.name} 参数 {get_list.value}")
+                await log.info(
+                    f"发送执行命令成功 活动名称: {get_list.alias} 脚本名称: {get_list.name} 参数 {get_list.value}")
             except Exception as e:
                 await log.error(f"执行青龙发送异常: {e}")
             return True
@@ -159,4 +163,3 @@ class Core(Ql):
 
         self.Delay_dict[get_queue[0].name] = int(time.time()) + int(get_queue[0].delays)
         return True
-
