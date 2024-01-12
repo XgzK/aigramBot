@@ -11,7 +11,8 @@ class HTTPClient:
 
     @contextlib.asynccontextmanager
     async def session(self):
-        async with aiohttp.ClientSession() as session:
+        conn = aiohttp.TCPConnector(ssl=False)
+        async with aiohttp.ClientSession(connector=conn) as session:
             yield session
 
     async def get(self, url, headers: dict = None, params=None, timeout: int = 10, proxy=None) -> Any:
