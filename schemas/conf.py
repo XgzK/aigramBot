@@ -30,7 +30,7 @@ class QlModel(BaseModel):
 class ProjectModel(BaseModel):
     log_level: str = "INFO"
     log_path: str = "logs/"
-    Version: float = 0.4
+    Version: float = 0.5
     Identity: str = "内测版本"
     interval: int = 5
 

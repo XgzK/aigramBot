@@ -12,8 +12,9 @@ while True:
         break
     print("没有检测到文件存在请按照下面提示操作\n"
           "docker exec -i -t aigramBot /bin/sh\n"
-          "cd /root\n"
-          "python3 conf.py\n"
+          "chmod 777 conf-arm conf-amd \n"
+          "选择你架构执行对应架构配置生成\n"
+          "./conf-arm\n"
           "根据提示完成配置")
     time.sleep(20)
 if os.path.exists("/root/config.json5"):
