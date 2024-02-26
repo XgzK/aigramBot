@@ -3,6 +3,13 @@ from schemas.activities import ExportModel
 
 class QueueItem:
     def __init__(self, priority: int, value: list[ExportModel]):
+        """
+        队列根据设置的优先级进行出站
+        :param priority:
+        :type priority:
+        :param value:
+        :type value:
+        """
         self.priority = priority
         self.value = value
 

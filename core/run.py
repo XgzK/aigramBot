@@ -7,10 +7,9 @@ import time
 from pydantic import ValidationError
 
 from core import queue
-from init.conf import conf
+from init.conf import conf, log
 from schemas.activities import ExportModel
 from schemas.conf import QlModel
-from utils.logs import log
 from utils.ql import Ql
 from utils.queue import QueueItem
 
@@ -21,8 +20,7 @@ class Core(Ql):
         try:
             self.ql = QlModel.model_validate(conf.ql)
         except ValidationError as exc:
-            log.error("获取青龙参数异常")
-            print(exc.json())
+            print("Core 读取出现异常: ", exc.json())
         self.interval = conf.project.interval
         super().__init__()
         self.queue = queue

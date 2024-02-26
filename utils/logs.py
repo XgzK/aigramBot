@@ -1,8 +1,5 @@
-import os
 import sys
 from loguru import logger
-
-from init.conf import conf
 
 
 class AsyncLog:
@@ -58,6 +55,3 @@ class AsyncLog:
     async def exception(self, message):
         self.logger.opt(depth=1, exception=False).exception(message)
         await logger.complete()
-
-
-log = AsyncLog(level=conf.project.log_level, log_path=conf.project.log_path)

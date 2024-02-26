@@ -1,8 +1,8 @@
 import json
 import re
 
+from init.conf import log
 from utils.aioclient import HTTPClient
-from utils.logs import log
 
 
 class Ql(HTTPClient):
@@ -69,7 +69,6 @@ class Ql(HTTPClient):
         headers = self.headers
         headers["Authorization"] = auth
         return await self.put(url=url + "/open/crons/run", headers=headers, data=data)
-
 
     async def put_crontab_disable(self, url: str, auth: str, data: list) -> dict:
         """

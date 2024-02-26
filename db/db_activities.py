@@ -2,8 +2,8 @@ import re
 
 from tortoise.expressions import Q
 
+from init.conf import log
 from models.activities import Activities
-from utils.logs import log
 
 """
 封装的一些活动库有关的方法

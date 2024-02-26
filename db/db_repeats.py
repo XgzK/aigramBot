@@ -1,5 +1,5 @@
+from init.conf import log
 from models.repeats import Repeats
-from utils.logs import log
 
 
 class MethodRepeats:

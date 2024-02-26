@@ -10,15 +10,14 @@ from core import queue
 from core.convert import Convert
 from db.db_activities import MethodActivities
 from db.db_repeats import MethodRepeats
-from init.conf import conf
+from init.conf import conf, log
 from models.activities import Activities
 from models.repeats import Repeats
 from schemas.activities import ExportModel
-from utils.logs import log
 from utils.queue import QueueItem
 
 
-class Points(Convert, MethodActivities, MethodRepeats):
+class Dispose(Convert, MethodActivities, MethodRepeats):
     def __init__(self):
         super().__init__()
         MethodActivities.__init__(self, Activities)
@@ -129,7 +128,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
 
     async def forward(self, text):
         """
-        转发消息
+        如果设置转发会把内容转发出去，并没有对其进行转发失败处理
         :param text:
         :type text:
         :return:
@@ -141,7 +140,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
 
     async def repeat(self, text: str) -> bool:
         """
-        用来检测是否执行的
+        用来监测是否执行过对应的值过滤重复内容
         :param text:
         :type text:
         :return:
@@ -151,7 +150,7 @@ class Points(Convert, MethodActivities, MethodRepeats):
         if self.expired < int(time.time()):
             await self.dele_ti(int(time.time()))
             self.expired = int(time.time()) + 3600
-        # 检测是否存在
+        # 检测是否存在 ，如果是链接则使用正则获取其关键字
         re_per = re.findall("(?:activityId|configCode|actId|code|token|shopId|venderId|id)=(\w+)&?", text)
         if re_per:
             async with self.lock:

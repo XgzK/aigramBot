@@ -161,4 +161,6 @@ head_url
   > 任务队列实现  
   > interval 参数实现脚本执行下个任务等待时间 默认等待五秒
 - > 0.3 内测版本
-  >  更正 jd_daily.js jd_drawShopGift.js 
+  >  更正 jd_daily.js jd_drawShopGift.js
+
+# 逻辑
