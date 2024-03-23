@@ -146,6 +146,9 @@ class Dispose(Convert, MethodActivities, MethodRepeats):
         :return:
         :rtype:
         """
+        # 过滤去重复
+        if conf.activities.repeat:
+            return True
         # 如果超过时间则删除
         if self.expired < int(time.time()):
             await self.dele_ti(int(time.time()))

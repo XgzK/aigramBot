@@ -13,6 +13,7 @@ class TgModel(BaseModel):
 class ActivitiesModel(BaseModel):
     black_keywords: list[str] = []
     black_script: list[str] = []
+    repeat: bool = False
 
 
 class QlModel(BaseModel):
