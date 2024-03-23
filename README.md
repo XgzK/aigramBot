@@ -77,7 +77,7 @@ docker cp config.json5 aigramBot:/aigram
       "jd_opencardL309.js",
       "jd_tj_cxjhelp.js"
     ],
-    "repeat": false // true 表示启动过滤重复  false 表示不去重复
+    "repeat": false // true 表示不启动过滤重复  false 表示去重复
   },
   "ql": {
     "file": "qlva.sh", // 写入青龙的文件,不能使用青龙自带的文件
