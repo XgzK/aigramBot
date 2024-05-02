@@ -3,6 +3,20 @@
 
 本项目基于 [aiogram](https://docs.aiogram.dev/en/dev-3.x/contributing.html) 开发,后续会添加 [FastAPI](https://fastapi.tiangolo.com/) 的Web部分功能
 本项目主要基于TGBot监控频道和群的线报配合青龙执行对应脚本任务
+### 不支持
+```text
+jd_wxSignPoint.js
+jd_wxSign.js
+jd_wxSignPoint.js
+jd_gzsl_contact.js
+jd_gzsl_lottery.js
+jd_liveLottery.js
+```
+### 支持库
+[faker](https://github.com/shufflewzc/faker2)
+[HarbourToulu](https://github.com/HarbourJ/HarbourToulu)
+[环境](https://github.com/feverrun/my_scripts)
+[9Rebels](https://github.com/9Rebels/jdmax)
 
 ### TGBot缺陷和好处
 缺陷
