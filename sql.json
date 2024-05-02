@@ -268,6 +268,16 @@
       "value1": "export DPQDTK"
     },
     {
+      "alias": "店铺签到",
+      "name": "jd_dpqd_main.js",
+      "match_url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=jd_dpqd_tokens",
+      "re_url": "token=(\\w+)",
+      "cutting": "&",
+      "js_level": 4,
+      "head_url": "babelDiy/Zeus",
+      "value1": "export jd_dpqd_tokens"
+    },
+    {
       "alias": "店铺签到-定时",
       "name": "jd_dpqd_own.js",
       "match_url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=dpqd_token_own",
@@ -282,7 +292,7 @@
       "match_url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=DPQDTK",
       "re_url": "token=(\\w+)",
       "cutting": "&",
-      "js_level": 4,
+      "js_level": 3,
       "head_url": "babelDiy/Zeus",
       "value1": "export jd_dpqd_monitor_token"
     },
@@ -1055,25 +1065,12 @@
       "value1": "export jd_shopLottery_venderIds"
     },
     {
-      "alias": "微信红包团",
-      "name": "jd_wechat_openGroup.js",
-      "value1": "export jd_wechat_openGroup_id"
-    },
-    {
       "alias": "完善信息有礼（超级会员）",
       "name": "jd_wx_completeInfoActivity.js",
       "match_url": "jd_wx_completeInfoActivity_activityUrl",
       "re_url": ".*",
       "head_url": "wx/completeInfoActivity",
       "value1": "export jd_wx_completeInfoActivity_activityUrl"
-    },
-    {
-      "alias": "每日抢好礼（超级无线/超级会员）",
-      "name": "jd_wx_completeInfoActivity.js",
-      "match_url": "jd_wx_daily_url",
-      "re_url": ".*",
-      "head_url": "activity/daily",
-      "value1": "export jd_wx_daily_url"
     },
     {
       "alias": "店铺抽奖（超级无线/超级会员）",
