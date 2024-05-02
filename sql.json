@@ -504,16 +504,6 @@
       "value1": "export jd_lzkj_signActivity2_ids"
     },
     {
-      "alias": "lzkj v2 生日礼包",
-      "name": "jd_lzkj_v2_birthday.js",
-      "match_url": "jd_lzkj_v2_birthday_urls",
-      "re_url": "(https://.*?prod/cc/interaction/v2/20002.*?)",
-      "head_url": "prod/cc",
-      "cutting": "@",
-      "type_url": "lz",
-      "value1": "export jd_lzkj_v2_birthday_urls"
-    },
-    {
       "alias": "lzkj v2 完善信息",
       "name": "jd_lzkj_v2_completeInfo.js",
       "match_url": "jd_lzkj_v2_completeInfo_urls",
@@ -522,26 +512,6 @@
       "cutting": "@",
       "type_url": "lz",
       "value1": "export jd_lzkj_v2_completeInfo_urls"
-    },
-    {
-      "alias": "lzkj v2 抽奖",
-      "name": "jd_lzkj_v2_draw.js",
-      "match_url": "jd_lzkj_v2_draw_urls",
-      "re_url": "(https://.*?prod/cc/interaction/v2/(!?10020|10021|10031|30003).*?)",
-      "head_url": "prod/cc",
-      "cutting": "@",
-      "type_url": "lz",
-      "value1": "export jd_lzkj_v2_draw_urls"
-    },
-    {
-      "alias": "lzkj v2 签到",
-      "name": "jd_lzkj_v2_sign.js",
-      "match_url": "jd_lzkj_v2_sign_urls",
-      "re_url": "(https://.*?prod/cc/interaction/v2/(!?10023/|10001/|10003/).*?)",
-      "head_url": "prod/cc",
-      "cutting": "@",
-      "type_url": "lz",
-      "value1": "export jd_lzkj_v2_sign_urls"
     },
     {
       "alias": "lzkj加购物车抽奖",
