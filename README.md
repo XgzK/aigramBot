@@ -11,12 +11,18 @@ jd_wxSignPoint.js
 jd_gzsl_contact.js
 jd_gzsl_lottery.js
 jd_liveLottery.js
+jd_fcwb_help.js
+jd_liveLottery.js
+jd_sevenDay.js
+jd_wxsign_jf.js
 ```
+机器人的更新下就行了
 ### 支持库
 [faker](https://github.com/shufflewzc/faker2)
 [HarbourToulu](https://github.com/HarbourJ/HarbourToulu)
 [环境](https://github.com/feverrun/my_scripts)
 [9Rebels](https://github.com/9Rebels/jdmax)
+[6dylan6](https://github.com/6dylan6/jdpro)
 
 ### TGBot缺陷和好处
 缺陷
@@ -42,7 +48,7 @@ docker run -dit \
   -e TZ=Asia/Shanghai \
   --name aigramBot \
   --restart unless-stopped \
-  xgzk/aigrambot:test
+  xgzk/aigrambot:latest
 ```
 
 ### 对接青龙
