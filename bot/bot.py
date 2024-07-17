@@ -24,6 +24,8 @@ async def private_handler(message: types.Message) -> None:
     接收私聊消息和文本
     """
     try:
+        if "/leave" in message.text:
+            await dispose.bot.aa.leave_chat(message.text.split(" ")[1])
         # 如果是转发的消息会返回转发频道有关的信息
         if message.forward_from_chat:
             text = f"用户信息\n" \
@@ -44,6 +46,8 @@ async def public_handler(message: types.Message) -> None:
     接收公共消息和文本,主要用于监控活动大概
     """
     try:
+        if "/leave" in message.text:
+            await dispose.bot.aa.leave_chat(message.chat.id)
         # 屏蔽转发的id和转发群组的ID
         if message.forward_from_chat and message.forward_from_chat.id in conf.tg.black_id + conf.tg.forward_from:
             await log.debug(f"{message.forward_from_chat.id} 设置了屏蔽或转发将自动屏蔽该内容")
@@ -53,7 +57,6 @@ async def public_handler(message: types.Message) -> None:
             await dispose.pie(message.text)
     except TypeError:
         await message.answer("Nice try!")
-
 
 async def main_bot() -> None:
     await log.info(f"欢迎使用 aigramBot {conf.project.Identity} {conf.project.Version}")
