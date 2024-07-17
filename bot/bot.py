@@ -1,3 +1,5 @@
+import os
+import signal
 import sys
 
 import aiogram
@@ -24,6 +26,8 @@ async def private_handler(message: types.Message) -> None:
     接收私聊消息和文本
     """
     try:
+        if "/Restart" == message.text:
+            os.kill(os.getpid(), signal.SIGINT)
         if "/leave" in message.text:
             await dispose.bot.leave_chat(message.text.split(" ")[1])
         # 如果是转发的消息会返回转发频道有关的信息
@@ -89,15 +93,19 @@ async def main_bot() -> None:
 <a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
 <a href="https://github.com/9Rebels/jdmax">9Rebels</a>
 <a href="https://github.com/6dylan6/jdpro">6dylan6</a> <a href="https://t.me/dylan_jdpro">频道</a> <a href="https://t.me/+FrLpTZlvRa4zYTY1">群</a>
-<a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>""")
+<a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>
+/Restart 私发给机器人可以重启机器人
+/leave 群ID 私发可以退出群聊""")
         elif conf.tg.forward_from:
             for chat in conf.tg.forward_from:
                 await dispose.bot.send_message(chat, """支持库
-                <a href="https://github.com/shufflewzc">faker系列</a> <a href="https://t.me/scriptalking">频道</a> <a href="https://t.me/Soucetalk">群</a>
-                <a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
-                <a href="https://github.com/9Rebels/jdmax">9Rebels</a>
-                <a href="https://github.com/6dylan6/jdpro">6dylan6</a> <a href="https://t.me/dylan_jdpro">频道</a> <a href="https://t.me/+FrLpTZlvRa4zYTY1">群</a>
-                <a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>""")
+<a href="https://github.com/shufflewzc">faker系列</a> <a href="https://t.me/scriptalking">频道</a> <a href="https://t.me/Soucetalk">群</a>
+<a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
+<a href="https://github.com/9Rebels/jdmax">9Rebels</a>
+<a href="https://github.com/6dylan6/jdpro">6dylan6</a> <a href="https://t.me/dylan_jdpro">频道</a> <a href="https://t.me/+FrLpTZlvRa4zYTY1">群</a>
+<a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>
+/Restart 私发给机器人可以重启机器人
+/leave 群ID 私发可以退出群聊""")
     except ProxyConnectionError as e:
         await log.error(f"无法链接到网络: {e}")
         sys.exit(1)
