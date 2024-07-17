@@ -3,20 +3,6 @@
 
 本项目基于 [aiogram](https://docs.aiogram.dev/en/dev-3.x/contributing.html) 开发,后续会添加 [FastAPI](https://fastapi.tiangolo.com/) 的Web部分功能
 本项目主要基于TGBot监控频道和群的线报配合青龙执行对应脚本任务
-### 不支持
-```text
-jd_wxSignPoint.js
-jd_wxSign.js
-jd_wxSignPoint.js
-jd_gzsl_contact.js
-jd_gzsl_lottery.js
-jd_liveLottery.js
-jd_fcwb_help.js
-jd_liveLottery.js
-jd_sevenDay.js
-jd_wxsign_jf.js
-```
-机器人的更新下就行了
 ### 支持库
 [faker](https://github.com/shufflewzc/faker2)
 [HarbourToulu](https://github.com/HarbourJ/HarbourToulu)
@@ -43,6 +29,7 @@ TGBot是官方推出机器人相对人形 傻妞 spy 无界 等人形机器人�
 当然如果你希望本项目尽快删库跑路可以尽情转发
 如果发现未经开发者允许转发者，将会私有项目不再对外提供任何服务
 当然写这么多还是会有人私自转发,在 [QL_variable](https://github.com/XgzK/QL_variable) 项目中就发现了多个私自设置转发的，也被监控群组的管理者告知不能监控的谈话，希望使用者尽情作死，让本人早日结束漫长的维护过程,不要觉得因为这个项目有任何收益情况，到现在为止解析短链每个月都需要耗费6元代理费用，而每月豆子还达不到6元收益,负收入开发中，当然说这么多不是在对你们哭穷，只是告诉你们如果删除项目会更有益，也会节省更多时间去打打游戏也好找小姐姐聊天也好都比维护这种没技术含量的项目强
+aigramBot 添加一大堆反代不确定有没有问题
 ```shell
 docker run -dit \
   -e TZ=Asia/Shanghai \
@@ -113,63 +100,8 @@ docker cp config.json5 aigramBot:/aigram
 }
 ```
 
-# 线报配置
-```text
-match_url 教程
-    表示拼接成的链接 如 export jd_txzj_sign_in_id 拼接的head_url是 https://txzj-isv.isvjcloud.com/sign_in/home?a=jd_txzj_sign_in_id
-re_url 
-    (https.*?activityType=(?:10020|10021|10026|10031|10063|10080).*) 匹配链接有 10020 10021 10026 10031 10063 10080 其中一个出现就匹配 
-    (https.*?activityType=10024.*) 匹配 activityType=10024
-head_url 
-   匹配正则表达式 com/((?:ql/|microDz/)?[a-zA-Z]+/?[a-zA-Z]*) 匹配结构去掉com/ 去在线正则表达式测试就看到了
-```
-```json5
-{
-  "alias": "脚本的中文名称", // 必填
-  "name": "脚本的名称 sh js py", // 必填
-  "match_url": "活动转url使用的,通常是export转链接的拼接",
-  "re_url": "url转活动的正则表达式",
-  "head_url": "链接关键部分", // 
-  "type_url": "脚本支持链接类型",
-  "cutting": "拼接符号",
-  "delays": "间隔秒", // 默认5
-  "js_level": 5,// 脚本优先所有脚本优先级 0最高往后优先级别越来越低
-  "level": "脚本优先级别越大级别越高",// 默认0
-  "value1": "export jd_1", // 必填
-  "value2": "export jd_2",
-  "value3": "export jd_3",
-}
-```
-下面是必填否则报错
-```json5
-{
-  "alias": "脚本的中文名称", // 必填
-  "name": "脚本的名称 sh js py", // 必填
-  "value1": "export jd_1", // 必填
-}
-```
-演示
-```json5
-{
-  "alias": "关注店铺有礼（超级无线欧莱雅）",
-  "name": "jd_lzkj_loreal_lkFollowShop.js",
-  "match_url": "jd_lzkj_loreal_lkFollowShop_ur",
-  "re_url": "(https.*?activityType=10069.*?activityId=\\w+.*?)",
-  "head_url": "prod/cc",
-  "value1": "export jd_lzkj_loreal_lkFollowShop_ur"
-}
-```
-```json5
-{
-  "alias": "积分兑换京豆 · 超级会员",
-  "name": "jd_pointExgBeans.js",
-  "match_url": "jd_pointExgBeans_activityUrl",
-  "re_url": ".*", // 表示匹配链接所有
-  "level": 4,
-  "head_url": "mc/wxPointShopView/pointExgBeans", 
-  "value1": "export jd_pointExgBeans_activityUrl"
-}
-```
+## 演示
+
 ### 版本
 - > 0.1 内测版本  
   > 简单实现了 [QL_variable](https://github.com/XgzK/QL_variable) 的功能,没有单个脚本延迟执行, 没有实现web端,没有实现禁用青龙任务,没有实现多青龙面板支持,没有实现远程数据库支持
@@ -183,5 +115,10 @@ head_url
   > interval 参数实现脚本执行下个任务等待时间 默认等待五秒
 - > 0.3 内测版本
   >  更正 jd_daily.js jd_drawShopGift.js
+- > 0.4 内测版本
+  > 对版本进行重构
+  > 对解析调整
+  > 更改解析数据
+  >  使用用户ID启动时候发送支持库
 
 # 逻辑

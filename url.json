@@ -1,0 +1,551 @@
+{
+  "JdUrl": {
+    "DPCJID": {
+      "url": "https://shop.m.jd.com/shop/lottery?shopId=DPCJID",
+      "cutting": [
+        "&"
+      ],
+      "urlStr": false
+    },
+    "jd_inv_authorCode": {
+      "url": "https://prodev.m.jd.com/mall/active/index.html?code=jd_inv_authorCode"
+    },
+    "jinggengInviteJoin": {
+      "url": "https://jinggeng-isv.isvjcloud.com/ql/front/showInviteJoin?id=#0&user_id=#1",
+      "urlStr": true,
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_joinCommonId": {
+      "url": "https://lzdz1-isv.isvjcloud.com/m/unite/dzlh0001?activityId=#0&venderId=#1",
+      "urlStr": true,
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_shopCollectGiftId": {
+      "url": "https://shop.m.jd.com/shop/home?shopId=jd_shopCollectGiftId"
+    },
+    "jd_shopLeagueId": {
+      "url": "https://lzdz1-isv.isvjd.com/dingzhi/shop/league/activity?activityId=jd_shopLeagueId"
+    },
+    "jd_wxBirthGiftsId": {
+      "url": "https://cjhy-isv.isvjcloud.com/mc/wxMcLevelAndBirthGifts/activity?activityId=jd_wxBirthGiftsId"
+    },
+    "jd_wxCompleteInfoId": {
+      "url": "https://cjhy-isv.isvjcloud.com/wx/completeInfoActivity/view/activity?activityId=#0&venderId=#1",
+      "urlStr": true,
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_wxShopFollowId": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxShopFollowActivity/activity?activityId=jd_wxShopFollowId"
+    },
+    "jd_wxShopGiftId": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=jd_wxShopGiftId"
+    },
+    "VENDER_ID": {
+      "url": "https://cjhy-isv.isvjcloud.com/wxInviteActivity/openCard/invitee/442818?activityId=VENDER_ID",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_completeInfoActivity_Ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/wx/completeInfoActivity/view/activity?activityId=jd_cjhy_completeInfoActivity_Ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_daily_ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/activity/daily/wx/indexPage1?activityId=jd_cjhy_daily_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_signActivity_ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=jd_cjhy_signActivity_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_wxCollectionActivityId": {
+      "url": "https://cjhy-isv.isvjcloud.com/wxCollectionActivity/activity?activityId=jd_cjhy_wxCollectionActivityId",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_wxDrawActivity_Id": {
+      "url": "https://cjhy-isv.isvjcloud.com/wxDrawActivity/activity?activityId=jd_cjhy_wxDrawActivity_Id",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_wxGameActivity_activityId": {
+      "url": "https://cjhy-isv.isvjcloud.com/wxGameActivity/activity?activityId=jd_cjhy_wxGameActivity_activityId",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_wxKnowledgeActivity_activityId": {
+      "url": "https://cjhy-isv.isvjcloud.com/wxKnowledgeActivity/activity?activityId=jd_cjhy_wxKnowledgeActivity_activityId",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_wxMcLevelAndBirthGifts_ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/mc/wxMcLevelAndBirthGifts/activity?activityId=jd_cjhy_wxMcLevelAndBirthGifts_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_wxShopFollowActivity_activityId": {
+      "url": "https://cjhy-isv.isvjcloud.com/wxShopFollowActivity/activity?activityId=jd_cjhy_wxShopFollowActivity_activityId",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhy_wxShopGift_ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/wxShopGift/activity?activityId=jd_cjhy_wxShopGift_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_cjhydz_wxTeam_Id": {
+      "url": "https://cjhydz-isv.isvjcloud.com/wxTeam/activity?activityId=jd_cjhydz_wxTeam_Id"
+    },
+    "DPQDTK": {
+      "url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=DPQDTK",
+      "cutting": [
+        "&"
+      ]
+    },
+    "dpqd_token_own": {
+      "url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=dpqd_token_own",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_dpqd_monitor_token": {
+      "url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=jd_dpqd_monitor_token",
+      "cutting": [
+        "&",
+        "@",
+        ","
+      ]
+    },
+    "jd_lzkj_10006_v1_ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interaction/v1/index?activityType=10006&activityId=jd_lzkj_10006_v1_ids"
+    },
+    "jd_lzkj_10033_zdgf_Ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10033&activityId=jd_lzkj_10033_zdgf_Ids&nodeId=101001&prd=cjwx",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_10038_lrkj_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10038&activityId=jd_lzkj_10038_lrkj_activityId&nodeId=101001&prd=cjwx",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_10043_fxyl_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10043&activityId=jd_lzkj_10043_fxyl_activityId&nodeId=101001&prd=cjwx"
+    },
+    "jd_lzkj_10044_tpyl_Ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10044&activityId=jd_lzkj_10044_tpyl_Ids&nodeId=101001&prd=cjwx",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_10047_glyl_Id": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10047&activityId=jd_lzkj_10047_tpyl_Ids&nodeId=101001&prd=cjwx",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_10053_gzspyl_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10053&activityId=jd_lzkj_10053_gzspyl_activityId&nodeId=101001&prd=cjwx",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_10058_dplb_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10058&activityId=jd_lzkj_10058_dplb_activityId&nodeId=101001&prd=cjwx"
+    },
+    "jd_lzkj_10069_gzyl_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10069&activityId=jd_lzkj_10069_gzyl_activityId&nodeId=101001&prd=cjwx"
+    },
+    "jd_lzkj_10070_v1_ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interaction/v1/index?activityType=10069&activityId=jd_lzkj_10070_v1_idsx"
+    },
+    "jd_lzkj_10070_yqhyrh_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10069&activityId=jd_lzkj_10070_yqhyrh_activityId"
+    },
+    "jd_lzkj_10079_jfdh_Ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10079&activityId=jd_lzkj_10079_jfdh_Ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_100_draw_urls": {
+      "urlStr": true,
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_daily_ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/activity/daily/wx/indexPage?activityId=jd_lzkj_daily_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "JD_Lottery": {
+      "url": "https://jdjoy.jd.com/module/task/draw/get?configCode=JD_Lottery"
+    },
+    "jd_lzkj_sevenDay_ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=jd_lzkj_sevenDay_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_signActivity2_ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/sign/signActivity2?activityId=jd_lzkj_signActivity2_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_v2_birthday_urls": {
+      "urlStr": true,
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_v2_completeInfo_urls": {
+      "urlStr": true,
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_v2_draw_urls": {
+      "urlStr": true,
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_v2_draw_url": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_jingyun_sign_urls": {
+      "urlStr": true,
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_v2_sign_urls": {
+      "urlStr": true,
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_v2_sign_url": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_wxCollectionActivityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2?activityId=jd_lzkj_wxCollectionActivityId",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_wxDrawActivity_Id": {
+      "url": "https://lzkj-isv.isvjcloud.com/lzclient/1685415463857/cjwx/common/entry.html?activityId=jd_lzkj_wxDrawActivity_Id",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_wxShopFollowActivity_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxShopFollowActivity/activity?activityId=jd_lzkj_wxShopFollowActivity_activityId",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_wxShopGift_ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=jd_lzkj_wxShopGift_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "DPLHTY": {
+      "url": "https://jinggengjcq-isv.isvjcloud.com/jdbeverage/pages/oC202301010wee/oC202301010wee?actId=DPLHTY",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzdz1_joinCommon_Id": {
+      "url": "https://lzdz1-isv.isvjcloud.com/dingzhi/joinCommon/activity/activity?activityId=jd_lzdz1_joinCommon_Id"
+    },
+    "jd_sendbeans_urls": {
+      "urlStr": true,
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_shop_draw_ids": {
+      "url": "https://shop.m.jd.com/shop/lottery?shopId=jd_shop_draw_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_txzj_cart_item_id": {
+      "url": "https://txzj-isv.isvjcloud.com/cart_item/home?a=jd_txzj_cart_item_id"
+    },
+    "jd_txzj_collect_item_id": {
+      "url": "https://txzj-isv.isvjcloud.com/collect_item/home?a=jd_txzj_collect_item_id"
+    },
+    "jd_txzj_lottery_item_id": {
+      "url": "https://txzj-isv.isvjcloud.com/lottery/home?a=jd_txzj_lottery_item_id"
+    },
+    "jd_txzj_sign_in_id": {
+      "url": "https://txzj-isv.isvjcloud.com/sign_in/home?a=jd_txzj_sign_in_id",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_wxBuildActivity_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxBuildActivity/activity?activityId=jd_wxBuildActivity_activityId"
+    },
+    "jd_wxCartKoi_activityId": {
+      "url": "https://lzkjdz-isv.isvjcloud.com/wxCartKoi/cartkoi/activity?activityId=jd_wxCartKoi_activityId"
+    },
+    "jd_wxCollectCard_activityId": {
+      "url": "https://lzkjdz-isv.isvjcloud.com/wxCollectCard/activity/activity?activityId=jd_wxCollectCard_activityId"
+    },
+    "ACTIVITY_ID": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxgame/activity?activityId=ACTIVITY_ID"
+    },
+    "jd_wxFansInterActionActivity_activityId": {
+      "url": "https://lzkjdz-isv.isvjd.com/wxFansInterActionActivity/activity?activityId=jd_wxFansInterActionActivity_activityId"
+    },
+    "jd_wxKnowledgeActivity_activityUrl": {
+      "urlStr": true
+    },
+    "jd_wxMcLevelAndBirthGifts_activityId": {
+      "url": "https://lzkjdz-isv.isvjd.com/wxSecond/activity/activity?activityId=jd_wxSecond_activityId"
+    },
+    "jd_wxSecond_activityId": {
+      "url": "https://lzkjdz-isv.isvjd.com/wxSecond/activity/activity?activityId=jd_wxSecond_activityId"
+    },
+    "jd_wxShareActivity_activityId": {
+      "url": "https://lzkjdz-isv.isvjcloud.com/wxShareActivity/activity?activityId=jd_wxShareActivity_activityId"
+    },
+    "jd_wxUnPackingActivity_activityId": {
+      "url": "https://lzkjdz-isv.isvjd.com/wxUnPackingActivity/activity/activity?activityId=jd_wxUnPackingActivity_activityId"
+    },
+    "jd_wxgame_activityId": {
+      "url": "https://lzkj-isv.isvjd.com/wxgame/activity/activity?activityId=jd_wxgame_activityId"
+    },
+    "jd_opencard_shopleague_id": {
+      "url": "https://lzdz1-isv.isvjd.com/dingzhi/shop/league/activity?activityId=jd_opencard_shopleague_id"
+    },
+    "jd_prodev_actCode": {
+      "url": "https://prodev.m.jd.com/mall/active/index.html?code=jd_prodev_actCode"
+    },
+    "jd_shopLottery_venderIds": {
+      "url": "https://shop.m.jd.com/shop/lottery?venderIds=jd_shopLottery_venderIds",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wx_drawCenter_activityId": {
+      "url": "https://lzkj-isv.isvjd.com/drawCenter/activity/activity?activityId=jd_wx_drawCenter_activityId"
+    },
+    "jd_dpqd_tokens": {
+      "url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=jd_dpqd_tokens",
+      "cutting": [
+        ",",
+        "@",
+        "&"
+      ]
+    },
+    "jd_dpqd_token": {
+      "url": "https://h5.m.jd.com/babelDiy/Zeus/2PAAf74aG3D61qvfKUM5dxUssJQ9/index.html?token=jd_dpqd_token"
+    },
+    "jd_drawCenter_activityId": {
+      "url": "https://lzkj-isv.isvjd.com/drawCenter/activity/activity?activityId=jd_drawCenter_activityId"
+    },
+    "jd_lzaddCart_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2/b252840a3f9a426480f0e0d7df9b3942?activityId=jd_lzaddCart_activityId"
+    },
+    "jd_fxyl_activityId": {
+      "url": "https://lzkjdz-isv.isvjcloud.com/wxShareActivity/activity?activityId=jd_fxyl_activityId"
+    },
+    "jd_cjhy_sevenDay_ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=jd_cjhy_sevenDay_ids",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_jingyun_plusGift_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_jingyun_partitionTeam_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_jingyun_draw_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_gzsl_contact_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_cjhy_wxShopFollowActivity_activityIds": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=jd_cjhy_wxShopFollowActivity_activityIds",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_10047_glyl_Ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10047&activityId=jd_lzkj_10047_glyl_Ids&nodeId=101001&prd=cjwx",
+      "cutting": [
+        "&"
+      ]
+    },
+    "jd_lzkj_10068_yqgzdpyl_activityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10068&activityId=jd_lzkj_10068_yqgzdpyl_activityId&nodeId=101001&prd=cjwx"
+    },
+    "jd_lzkj_100_jgyl_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_100_sign_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_prodev_id": {
+      "url": "https://pro.m.jd.com/mall/active/dVF7gQUVKyUcuSsVhuya5d2XD4F/index.html?code=jd_prodev_id"
+    },
+    "jd_liveLottery_ids": {
+      "url": "https://h5.m.jd.com/dev/3pbY8ZuCx4ML99uttZKLHC2QcAMn/live.html?id=jd_liveLottery_ids",
+      "cutting": [
+        "@",
+        ","
+      ]
+    },
+    "jd_opencard_venderId": {
+      "url": "https://shopmember.m.jd.com/shopcard/?venderId=jd_opencard_venderId",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSign_sevenDay_cjhy_Ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=jd_wxSign_sevenDay_cjhy_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSign_sign_cjhy_Ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=jd_wxSign_sign_cjhy_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSign_sevenDay_lzkj_Ids": {
+      "url": "https://lzkj-isv.isvjd.com/sign/sevenDay/signActivity?activityId=jd_wxSign_sevenDay_lzkj_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSign_sign_lzkj_Ids": {
+      "url": "https://lzkj-isv.isvjd.com/sign/signActivity2?activityId=jd_wxSign_sign_lzkj_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "LZKJ_SEVENDAY": {
+      "url": "https://lzkj-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=LZKJ_SEVENDAY",
+      "cutting": [
+        ","
+      ]
+    },
+    "LZKJ_SIGN": {
+      "url": "https://lzkj-isv.isvjcloud.com/sign/signActivity2?activityId=LZKJ_SIGN",
+      "cutting": [
+        ","
+      ]
+    },
+    "CJHY_SEVENDAY": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=CJHY_SEVENDAY",
+      "cutting": [
+        ","
+      ]
+    },
+    "CJHY_SIGN": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=CJHY_SIGN",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSignPoint_sign_lzkj_Ids": {
+      "url": "https://lzkj-isv.isvjd.com/sign/signActivity2?activityId=jd_wxSignPoint_sign_lzkj_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSignPoint_sevenDay_lzkj_Ids": {
+      "url": "https://lzkj-isv.isvjd.com/sign/sevenDay/signActivity?activityId=jd_wxSignPoint_sevenDay_lzkj_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSignPoint_sign_cjhy_Ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=jd_wxSignPoint_sign_cjhy_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "jd_wxSignPoint_sevenDay_cjhy_Ids": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=jd_wxSignPoint_sevenDay_cjhy_Ids",
+      "cutting": [
+        ","
+      ]
+    },
+    "LZKJ_SEVENDAY_JF": {
+      "url": "https://lzkj-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=LZKJ_SEVENDAY_JF",
+      "cutting": [
+        ","
+      ]
+    },
+    "LZKJ_SIGN_JF": {
+      "url": "https://lzkj-isv.isvjcloud.com/sign/signActivity2?activityId=LZKJ_SIGN_JF",
+      "cutting": [
+        ","
+      ]
+    },
+    "CJHY_SEVENDAY_JF": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/sevenDay/signActivity?activityId=CJHY_SEVENDAY_JF",
+      "cutting": [
+        ","
+      ]
+    },
+    "CJHY_SIGN_JF": {
+      "url": "https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=CJHY_SIGN_JF",
+      "cutting": [
+        ","
+      ]
+    }
+  }
+}

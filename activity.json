@@ -1,0 +1,2321 @@
+{
+  "activitiesUrl": [
+    {
+      "alias": "店铺抽奖-JK",
+      "name": "jd_dpcj.py",
+      "head_url": "shop/lottery",
+      "value": [
+        {
+          "export": ["DPCJID"],
+          "re_url": "shopId=(\\d+)"
+        }
+      ]
+    },
+    {
+      "alias": "邀好友赢大礼",
+      "name": "jd_inviteFriendsGift.py",
+      "head_url": "mall/active",
+      "value": [
+        {
+          "export": ["jd_inv_authorCode"],
+          "re_url": "code=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "通用开卡-joinCommon系列",
+      "name": "jd_joinCommon_opencard.py",
+      "head_url": "dingzhi/joinCommon",
+      "value": [
+        {
+          "export": ["jd_joinCommonId"],
+          "re_url": "activityId=(\\w+)&venderId=(\\d+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "jd_lzkjInteract邀请有礼",
+      "name": "jd_lzkjInteract.py",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkjInteractUrl"],
+          "re_url": "(https://.*?activityType=10006.*)"
+        }
+      ]
+    },
+    {
+      "alias": "jd_lzkjInteract加购有礼",
+      "name": "jd_lzkjInteractAddCart.py",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkjInteractUrl"],
+          "re_url": "(https://.*?activityType=10024.*)"
+        }
+      ]
+    },
+    {
+      "alias": "jd_lzkjInteract关注有礼",
+      "name": "jd_lzkjInteractFollow.py",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkjInteractFollowUrl"],
+          "re_url": "(https.*?activityType=(?:10069|10053).*?)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺会员礼包-监控脚本",
+      "name": "jd_shopCollectGift.py",
+      "head_url": "shop/home",
+      "value": [
+        {
+          "export": ["jd_shopCollectGiftId"],
+          "re_url": "shopId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "通用开卡-超店shopLeague系列",
+      "name": "jd_shopLeague_opencard.py",
+      "head_url": "dingzhi/shop/league",
+      "value": [
+        {
+          "export": ["jd_shopLeagueId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "生日等级礼包-监控脚本",
+      "name": "jd_wxBirthGifts.py",
+      "head_url": "mc/wxMcLevelAndBirthGifts",
+      "value": [
+        {
+          "export": ["jd_wxBirthGiftsId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "盖楼有礼-JK",
+      "name": "jd_wxBulidActivity.py",
+      "head_url": "wxBuildActivity",
+      "value": [
+        {
+          "export": ["jd_wxBulidActivityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购有礼-JK",
+      "name": "jd_wxCollectionActivity.py",
+      "head_url": "wxCollectionActivity",
+      "value": [
+        {
+          "export": ["jd_wxCollectionActivityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "完善信息有礼-监控脚本",
+      "name": "jd_wxCompleteInfo.py",
+      "head_url": "wx/completeInfoActivity",
+      "value": [
+        {
+          "export": ["jd_wxCompleteInfoId"],
+          "re_url": "(.+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "关注店铺有礼-JK",
+      "name": "jd_wxShopFollow.py",
+      "head_url": "wxShopFollowActivity",
+      "value": [
+        {
+          "export": ["jd_wxShopFollowId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺特效关注有礼-JK",
+      "name": "jd_wxShopGift.py",
+      "head_url": "wxShopGift",
+      "value": [
+        {
+          "export": ["jd_wxShopGiftId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "完善信息有礼（超级会员）",
+      "name": "jd_completeInfoActivity.js",
+      "head_url": "wx/completeInfoActivity",
+      "value": [
+        {
+          "export": ["jd_completeInfoActivity_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "每日抢好礼（超级无线/超级会员）",
+      "name": "jd_daily.js",
+      "head_url": "activity/daily",
+      "value": [
+        {
+          "export": ["jd_daily_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺签到",
+      "name": "jd_dpqd_main.js",
+      "head_url": "babelDiy/Zeus",
+      "value": [
+        {
+          "export": ["jd_dpqd_tokens"],
+          "re_url": "token=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "常规店铺签到监控",
+      "name": "jd_dpqd_monitor.js",
+      "head_url": "babelDiy/Zeus",
+      "value": [
+        {
+          "export": ["jd_dpqd_monitor_token"],
+          "re_url": "token=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖中心（超级无线）",
+      "name": "jd_drawCenter.js",
+      "head_url": "drawCenter",
+      "value": [
+        {
+          "export": ["jd_drawCenter_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "关注有礼（无线营销）",
+      "name": "jd_gzsl_contactWare.js",
+      "head_url": "wuxian/user/contactWare",
+      "value": [
+        {
+          "export": ["jd_gzsl_contactWare_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "幸运大转盘（无线营销）",
+      "name": "jd_gzsl_getLottery.js",
+      "head_url": "wuxian/user/getLottery",
+      "value": [
+        {
+          "export": ["jd_gzsl_getLottery_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺礼包（无线营销）",
+      "name": "jd_gzsl_shopGiftBag.js",
+      "head_url": "wuxian/mobileForApp/dist",
+      "value": [
+        {
+          "export": ["jd_gzsl_shopGiftBag_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "积分兑换（京耕）",
+      "name": "jd_jinggeng_exchangeActDetail.js",
+      "head_url": "ql/front/exchangeActDetail",
+      "value": [
+        {
+          "export": ["jd_jinggeng_exchangeActDetail_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "盖楼有礼（京耕）",
+      "name": "jd_jinggeng_floor.js",
+      "head_url": "ql/front/floor",
+      "value": [
+        {
+          "export": ["jd_jinggeng_floor_activityUrl"],
+          "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_jinggeng_floor_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "惊喜开盲盒（京耕）",
+      "name": "jd_jinggeng_loadBlindBox.js",
+      "head_url": "ql/front/loadBlindBox",
+      "value": [
+        {
+          "export": ["jd_jinggeng_loadBlindBox_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购有礼（京耕）",
+      "name": "jd_jinggeng_showCart.js",
+      "head_url": "ql/front/showCart",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showCart_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "积分抽奖（京耕）",
+      "name": "jd_jinggeng_showDrawOne.js",
+      "head_url": "ql/front/showDrawOne",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showDrawOne_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "关注店铺有礼（京耕）",
+      "name": "jd_jinggeng_showFavoriteShop.js",
+      "head_url": "ql/front/showFavoriteShop",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showFavoriteShop_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "邀请入会赢好礼（京耕）",
+      "name": "jd_jinggeng_showInviteJoin.js",
+      "head_url": "ql/front/showInviteJoin",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showInviteJoin_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "组队瓜分奖品（京耕）",
+      "name": "jd_jinggeng_showPartition.js",
+      "head_url": "ql/front/showPartition",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showPartition_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "完善有礼（京耕）",
+      "name": "jd_jinggeng_showPerfectInformation.js",
+      "head_url": "ql/front/showPerfectInformation",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showPerfectInformation_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "签到有礼（京耕）",
+      "name": "jd_jinggeng_showSign.js",
+      "head_url": "ql/front/showSign",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "幸运抽奖（京耕）",
+      "name": "jd_jinggeng_showTaskDraw.js",
+      "head_url": "ql/front/showTaskDraw",
+      "value": [
+        {
+          "export": ["jd_jinggeng_showTaskDraw_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖（超级无线/超级会员）",
+      "name": "jd_luck_draw.js",
+      "head_url": "lzclient",
+      "value": [
+        {
+          "export": ["LUCK_DRAW_URL"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖（超级无线/超级会员）",
+      "name": "jd_luck_draw.js",
+      "head_url": "wxDrawActivity",
+      "value": [
+        {
+          "export": ["LUCK_DRAW_URL"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖（超级无线/超级会员）",
+      "name": "jd_luck_draw.js",
+      "head_url": "wxDrawActivity",
+      "value": [
+        {
+          "export": ["LUCK_DRAW_URL"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "LZ加购有礼通用活动",
+      "name": "jd_lzaddCart.js",
+      "head_url": "wxCollectionActivity",
+      "value": [
+        {
+          "export": ["jd_lzaddCart_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购有礼（超级无线）",
+      "name": "jd_lzkj_cart.js",
+      "head_url": "wxCollectionActivity",
+      "value": [
+        {
+          "export": ["jd_lzkj_cart_url"],
+          "re_url": "(https://.*?activityType=10024.*)"
+        }
+      ]
+    },
+    {
+      "alias": "每日抢好礼（超级无线）",
+      "name": "jd_lzkj_dailyGrabs.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_dailyGrabs_url"],
+          "re_url": "(https://.*?activityType=10022.*)"
+        }
+      ]
+    },
+    {
+      "alias": "签到有礼（超级无线）",
+      "name": "jd_lzkj_daySign.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_daySign_url"],
+          "re_url": "(https://.*?activityType=(?:10023|10040).*)"
+        }
+      ]
+    },
+    {
+      "alias": "幸运抽奖（超级无线）",
+      "name": "jd_lzkj_draw.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_draw_url"],
+          "re_url": "(https://.*?activityType=(?:10001|10004|10020|10021|10026|10031|10041|10042|10046|10054|10062|10063|10073|10080).*)"
+        }
+      ]
+    },
+    {
+      "alias": "关注商品有礼（超级无线）",
+      "name": "jd_lzkj_followGoods.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_followGoods_url"],
+          "re_url": "(https://.*?activityType=10053.*)"
+        }
+      ]
+    },
+    {
+      "alias": "邀请关注店铺有礼（超级无线）",
+      "name": "jd_lzkj_inviteFollowShop.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_inviteFollowShop_url"],
+          "re_url": "(https://.*?activityType=10068.*)"
+        }
+      ]
+    },
+    {
+      "alias": "知识超人（超级无线）",
+      "name": "jd_lzkj_know.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_know_url"],
+          "re_url": "(https://.*?activityType=10039.*)"
+        }
+      ]
+    },
+    {
+      "alias": "关注店铺有礼（超级无线）",
+      "name": "jd_lzkj_lkFollowShop.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_lkFollowShop_url"],
+          "re_url": "(https://.*?activityType=10069.*)"
+        }
+      ]
+    },
+    {
+      "alias": "邀请入会有礼（超级无线）",
+      "name": "jd_lzkj_loreal_invite.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_invite_url"],
+          "re_url": "(https://.*?activityType=(?:10006|10070).*)"
+        }
+      ]
+    },
+    {
+      "alias": "分享有礼（超级无线）",
+      "name": "jd_lzkj_loreal_share.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_share_url"],
+          "re_url": "(https://.*?activityType=10043.*)"
+        }
+      ]
+    },
+    {
+      "alias": "签到抽奖（超级无线）",
+      "name": "jd_lzkj_loreal_sign.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_sign_url"],
+          "re_url": "(https://.*?activityType=(?:10001|10002|10003|10004).*)"
+        }
+      ]
+    },
+    {
+      "alias": "组队瓜分奖品（超级无线）",
+      "name": "jd_lzkj_organizeTeam.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_organizeTeam_url"],
+          "re_url": "(https://.*?activityType=10033.*)"
+        }
+      ]
+    },
+    {
+      "alias": "完善有礼（超级无线）",
+      "name": "jd_lzkj_perfectInfo.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_perfectInfo_url"],
+          "re_url": "(https://.*?activityType=10049.*)"
+        }
+      ]
+    },
+    {
+      "alias": "积分兑换（超级无线）",
+      "name": "jd_lzkj_pointsExchange.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_pointsExchange_url"],
+          "re_url": "(https://.*?activityType=10079.*)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺礼包（超级无线）",
+      "name": "jd_lzkj_shopGift.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_shopGift_url"],
+          "re_url": "(https://.*?activityType=10058.*)"
+        }
+      ]
+    },
+    {
+      "alias": "生日礼包（超级无线V2）",
+      "name": "jd_lzkj_v2_birthday.js",
+      "head_url": "prod/cc/interaction/v2",
+      "value": [
+        {
+          "export": ["jd_lzkj_v2_birthday_url"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/20002/.*)"
+        },
+        {
+          "export": ["jd_lzkj_v2_birthday_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "幸运抽奖（超级无线V2）",
+      "name": "jd_lzkj_v2_draw.js",
+      "head_url": "prod/cc/interaction/v2",
+      "value": [
+        {
+          "export": ["jd_lzkj_v2_draw_url"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/(?:10020|100021|10031|30003)/.*)",
+          "cutting": "@"
+        },
+        {
+          "export": ["jd_lzkj_v2_draw_urls"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/(?:10020|100021|10031|30003)/.*)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "完善有礼（超级无线V2）",
+      "name": "jd_lzkj_v2_perfectInfo.js",
+      "head_url": "prod/cc/interaction/v2",
+      "value": [
+        {
+          "export": ["jd_lzkj_v2_perfectInfo_url"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/10049/.*)"
+        }
+      ]
+    },
+    {
+      "alias": "签到有礼（超级无线V2）",
+      "name": "jd_lzkj_v2_sign.js",
+      "head_url": "prod/cc/interaction/v2",
+      "value": [
+        {
+          "export": ["jd_lzkj_v2_sign_url"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/(?:10001|10004|10023|10040|10002|10003)/.*)",
+          "cutting": "@"
+        },
+        {
+          "export": ["jd_lzkj_v2_sign_urls"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/(?:10001|10004|10023|10040|10002|10003)/.*)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "超店会员福利社通用开卡",
+      "name": "jd_opencard_shopleague.js",
+      "head_url": "dingzhi/shop/league",
+      "value": [
+        {
+          "export": ["jd_opencard_shopleague_id"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "积分兑换京豆（超级会员）",
+      "name": "jd_pointExgBeans.js",
+      "head_url": "mc/wxPointShopView/pointExgBeans",
+      "value": [
+        {
+          "export": ["jd_pointExgBeans_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "积分兑换红包（超级会员）",
+      "name": "jd_pointExgHb.js",
+      "head_url": "mc/wxPointShopView/pointExgHb",
+      "value": [
+        {
+          "export": ["jd_pointExgHb_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "积分兑换红包（超级会员）",
+      "name": "jd_pointExgShiWu.js",
+      "head_url": "mc/wxPointShopView/pointExgShiWu",
+      "value": [
+        {
+          "export": ["jd_pointExgShiWu_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "lz分享有礼",
+      "name": "jd_share2.js",
+      "head_url": "wxShareActivity",
+      "value": [
+        {
+          "export": ["jd_fxyl_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购有礼（收藏大师）",
+      "name": "jd_txzj_cart_item.js",
+      "head_url": "cart_item/home",
+      "value": [
+        {
+          "export": ["jd_cart_item_activityUrl"],
+          "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_txzj_cart_item_id"],
+          "re_url": "a=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "关注商品有礼（收藏大师）",
+      "name": "jd_txzj_collect_item.js",
+      "head_url": "collect_item/home",
+      "value": [
+        {
+          "export": ["jd_collect_item_activityUrl"],
+          "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_txzj_collect_item_id"],
+          "re_url": "a=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "关注店铺有礼（收藏大师）",
+      "name": "jd_txzj_collect_shop.js",
+      "head_url": "collect_shop/home",
+      "value": [
+        {
+          "export": ["jd_collect_shop_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "幸运抽奖（收藏大师）",
+      "name": "jd_txzj_lottery.js",
+      "head_url": "lottery/home",
+      "value": [
+        {
+          "export": ["jd_lottery_activityUrl"],
+          "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_txzj_lottery_id"],
+          "re_url": "a=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "分享有礼（收藏大师）",
+      "name": "jd_txzj_share_new.js",
+      "head_url": "share_new/home",
+      "value": [
+        {
+          "export": ["jd_share_new_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺礼包（收藏大师）",
+      "name": "jd_txzj_shop_gift.js",
+      "head_url": "shop_gift",
+      "value": [
+        {
+          "export": ["jd_shop_gift_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "签到有礼（收藏大师）",
+      "name": "jd_txzj_sign_in.js",
+      "head_url": "sign_in/home",
+      "value": [
+        {
+          "export": ["jd_sign_in_activityUrl"],
+          "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_txzj_sign_in_id"],
+          "re_url": "a=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "盖楼有礼（超级无线）",
+      "name": "jd_wxBuildActivity.js",
+      "head_url": "wxBuildActivity",
+      "value": [
+        {
+          "export": ["jd_wxBuildActivity_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "购物车锦鲤（超级无线）",
+      "name": "jd_wxCartKoi.js",
+      "head_url": "wxCartKoi/cartkoi",
+      "value": [
+        {
+          "export": ["jd_wxCartKoi_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "集卡有礼（超级无线）",
+      "name": "jd_wxCollectCard.js",
+      "head_url": "wxCollectCard",
+      "value": [
+        {
+          "export": ["jd_wxCollectCard_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购有礼（超级无线/超级会员）",
+      "name": "jd_wxCollectionActivity.js",
+      "head_url": "wxCollectionActivity",
+      "value": [
+        {
+          "export": ["jd_wxCollectionActivity_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购物车抽奖",
+      "name": "jd_wxCollectionActivity2.js",
+      "head_url": "wxgame",
+      "value": [
+        {
+          "export": ["ACTIVITY_ID"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "粉丝互动（超级无线）",
+      "name": "jd_wxFansInterActionActivity.js",
+      "head_url": "wxFansInterActionActivity",
+      "value": [
+        {
+          "export": ["jd_wxFansInterActionActivity_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "游戏赢大礼（超级无线/超级会员）",
+      "name": "jd_wxGameActivity.js",
+      "head_url": "wxGameActivity",
+      "value": [
+        {
+          "export": ["jd_wxGameActivity_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "知识超人（超级无线/超级会员）",
+      "name": "jd_wxKnowledgeActivity.js",
+      "head_url": "wxKnowledgeActivity",
+      "value": [
+        {
+          "export": ["jd_wxKnowledgeActivity_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "生日礼包/会员等级礼包（超级会员）",
+      "name": "jd_wxMcLevelAndBirthGifts.js",
+      "head_url": "mc/wxMcLevelAndBirthGifts",
+      "value": [
+        {
+          "export": ["jd_wxMcLevelAndBirthGifts_activityId"],
+          "re_url": "activityId=(\\w+)"
+        },
+        {
+          "export": ["jd_wxMcLevelAndBirthGifts_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "读秒拼手速（超级无线）",
+      "name": "jd_wxSecond.js",
+      "head_url": "wxSecond",
+      "value": [
+        {
+          "export": ["jd_wxSecond_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "分享有礼（超级无线）",
+      "name": "jd_wxShareActivity.js",
+      "head_url": "wxShareActivity",
+      "value": [
+        {
+          "export": ["jd_wxShareActivity_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "关注店铺有礼（超级无线/超级会员）",
+      "name": "jd_wxShopFollowActivity.js",
+      "head_url": "wxShopFollowActivity",
+      "value": [
+        {
+          "export": ["jd_wxShopFollowActivity_activityUrl"],
+          "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_wxShopFollowActivity_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "让福袋飞（超级无线）",
+      "name": "jd_wxUnPackingActivity.js",
+      "head_url": "wxUnPackingActivity",
+      "value": [
+        {
+          "export": ["jd_wxUnPackingActivity_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "无线游戏（超级无线）",
+      "name": "jd_wxgame.js",
+      "head_url": "wxgame/activity",
+      "value": [
+        {
+          "export": ["jd_wxgame_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "入会开卡领取礼包通用",
+      "name": "jd_card_force.js",
+      "head_url": "wxInviteActivity/openCard",
+      "value": [
+        {
+          "export": ["VENDER_ID"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy完善信息",
+      "name": "jd_cjhy_completeInfoActivity.js",
+      "head_url": "wx/completeInfoActivity/view",
+      "value": [
+        {
+          "export": ["jd_cjhy_completeInfoActivity_Ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy每日抢",
+      "name": "jd_cjhy_daily.js",
+      "head_url": "activity/daily/wx",
+      "value": [
+        {
+          "export": ["jd_cjhy_daily_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy七日签到",
+      "name": "jd_cjhy_sevenDay.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_cjhy_sevenDay_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy签到有礼",
+      "name": "jd_cjhy_signActivity.js",
+      "head_url": "sign/signActivity",
+      "value": [
+        {
+          "export": ["jd_cjhy_signActivity_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy加购物车抽奖",
+      "name": "jd_cjhy_wxCollectionActivity.js",
+      "head_url": "wxCollectionActivity",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxCollectionActivityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy幸运抽奖",
+      "name": "jd_cjhy_wxDrawActivity.js",
+      "head_url": "wxDrawActivity",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxDrawActivity_Id"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy游戏活动",
+      "name": "jd_cjhy_wxGameActivity.js",
+      "head_url": "wxGameActivity",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxGameActivity_activityId"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy知识超人",
+      "name": "jd_cjhy_wxKnowledgeActivity.js",
+      "head_url": "wxKnowledgeActivity",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxKnowledgeActivity_activityId"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy会员等级与生日礼",
+      "name": "jd_cjhy_wxMcLevelAndBirthGifts.js",
+      "head_url": "mc/wxMcLevelAndBirthGifts",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxMcLevelAndBirthGifts_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy积分兑换京豆",
+      "name": "jd_cjhy_wxPointShopView.js",
+      "head_url": "mc/wxPointShopView/pointExgBeans",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxPointShopView_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy关注店铺有礼",
+      "name": "jd_cjhy_wxShopFollowActivity.js",
+      "head_url": "wxShopFollowActivity",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxShopFollowActivity_activityId"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "cjhy店铺礼包",
+      "name": "jd_cjhy_wxShopGift.js",
+      "head_url": "wxShopGift",
+      "value": [
+        {
+          "export": ["jd_cjhy_wxShopFollowActivity_activityIds"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "cj组队瓜分",
+      "name": "jd_cjhydz_wxTeam.js",
+      "head_url": "wxTeam",
+      "value": [
+        {
+          "export": ["jd_cjhydz_wxTeam_Id"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺签到-定时",
+      "name": "jd_dpqd_own.js",
+      "head_url": "babelDiy/Zeus",
+      "value": [
+        {
+          "export": ["dpqd_token_own"],
+          "re_url": "token=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "gzsl 关注店铺有礼",
+      "name": "jd_gzsl_contact.js",
+      "head_url": "wuxian/user/contact",
+      "value": [
+        {
+          "export": ["jd_gzsl_contact_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        },
+        {
+          "export": ["jd_gzsl_contact_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "gzsl 关注店铺有礼",
+      "name": "jd_gzsl_contact.js",
+      "head_url": "wuxian/mobileForApp",
+      "value": [
+        {
+          "export": ["jd_gzsl_contact_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        },
+        {
+          "export": ["jd_gzsl_contact_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 抽奖",
+      "name": "jd_jingyun_draw.js",
+      "head_url": "h5/pages/turntable",
+      "value": [
+        {
+          "export": ["jd_jingyun_draw_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 组队",
+      "name": "jd_jingyun_partitionTeam.js",
+      "head_url": "h5/pages/partitionTeam",
+      "value": [
+        {
+          "export": ["jd_jingyun_partitionTeam_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 加购",
+      "name": "jd_jingyun_plusGift.js",
+      "head_url": "h5/pages/plusGift",
+      "value": [
+        {
+          "export": ["jd_jingyun_plusGift_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 签到",
+      "name": "jd_jingyun_sign.js",
+      "head_url": "h5/pages/SignIn",
+      "value": [
+        {
+          "export": ["jd_jingyun_sign_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 签到",
+      "name": "jd_jingyun_sign.js",
+      "head_url": "h5/pages/SignIn2",
+      "value": [
+        {
+          "export": ["jd_jingyun_sign_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 签到",
+      "name": "jd_jingyun_sign.js",
+      "head_url": "h5/pages/sevenDaysin",
+      "value": [
+        {
+          "export": ["jd_jingyun_sign_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 签到",
+      "name": "jd_jingyun_sign.js",
+      "head_url": "h5/pages/sevenDaysin2",
+      "value": [
+        {
+          "export": ["jd_jingyun_sign_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "JD抽奖机",
+      "name": "jd_lottery.js",
+      "head_url": "module/task/draw",
+      "value": [
+        {
+          "export": ["JD_Lottery"],
+          "re_url": "configCode=(\\w+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "joy抽奖机通用",
+      "name": "jd_lotterys.js",
+      "head_url": "module/task/draw",
+      "value": [
+        {
+          "export": ["JD_Lottery"],
+          "re_url": "configCode=(\\w+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10006_v1邀请入会有礼",
+      "name": "jd_lzkj_10006_v1.js",
+      "head_url": "prod/cc/interaction/v1",
+      "value": [
+        {
+          "export": ["jd_lzkj_10006_v1_ids"],
+          "re_url": "prod/cc/interaction/v1.*?activityType=10006.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10033组队瓜分",
+      "name": "jd_lzkj_10033_zdgf.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10033_zdgf_Ids"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10033.*activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10043分享有礼",
+      "name": "jd_lzkj_10043_fxyl.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10043_fxyl_activityId"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10043.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10044投票有礼抽奖",
+      "name": "jd_lzkj_10044_tpyl.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10044_tpyl_Ids"],
+          "re_url":  "prod/cc/interactsaas.*?activityType=10044.*activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10047盖楼有礼",
+      "name": "jd_lzkj_10047_glyl.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10047_glyl_Ids"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10047.*activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10053关注商品有礼",
+      "name": "jd_lzkj_10053_gzspyl.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10053_gzspyl_activityId"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10053.*activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10058店铺礼包",
+      "name": "jd_lzkj_10058_dplb.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10058_dplb_activityId"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10058.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10068邀请关注店铺有礼",
+      "name": "jd_lzkj_10068_yqgzdpyl.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10068_yqgzdpyl_activityId"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10068.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10069关注店铺有礼",
+      "name": "jd_lzkj_10069_gzyl.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10069_gzyl_activityId"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10069.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10070_v1邀请好友入会",
+      "name": "jd_lzkj_10070_v1.js",
+      "head_url": "prod/cc/interaction/v1",
+      "value": [
+        {
+          "export": ["jd_lzkj_10070_v1_ids"],
+          "re_url": "prod/cc/interaction/v1.*?activityType=10070.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10070邀请好友入会",
+      "name": "jd_lzkj_10070_yqhyrh.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10070_yqhyrh_activityId"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10070.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10079积分兑换",
+      "name": "jd_lzkj_10079_jfdh.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10079_jfdh_Ids"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10079.*activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_100 抽奖",
+      "name": "jd_lzkj_100_draw.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_100_draw_urls"],
+          "re_url": "(https://.*?activityType=(?:10001|10004|10020|10021|10026|10031|10041|10042|10046|10054|10062|10063|10073|10080).*)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj 100 加购有礼",
+      "name": "jd_lzkj_100_jgyl.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_100_jgyl_urls"],
+          "re_url": "(.*activityType=10024.*)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj 100 签到",
+      "name": "jd_lzkj_100_sign.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_100_sign_urls"],
+          "re_url": "prod/cc/interactsaas.*?activityType=(?:10001|10004|10002|10003|10023|10040).*activityId=(\\w+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj每日抢",
+      "name": "jd_lzkj_daily.js",
+      "head_url": "activity/daily/wx/indexPage",
+      "value": [
+        {
+          "export": ["jd_lzkj_daily_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj七日签到",
+      "name": "jd_lzkj_sevenDay.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_lzkj_sevenDay_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj签到有礼",
+      "name": "jd_lzkj_signActivity2.js",
+      "head_url": "sign/signActivity2",
+      "value": [
+        {
+          "export": ["jd_lzkj_signActivity2_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj加购物车抽奖",
+      "name": "jd_lzkj_wxCollectionActivity.js",
+      "head_url": "wxCollectionActivity",
+      "value": [
+        {
+          "export": ["jd_lzkj_wxCollectionActivityId"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj v2 完善信息",
+      "name": "jd_lzkj_v2_completeInfo.js",
+      "head_url": "prod/cc/interaction/v2",
+      "value": [
+        {
+          "export": ["jd_lzkj_v2_completeInfo_urls"],
+          "re_url": "(.*prod/cc/interaction/v2/10049/1002.*)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj幸运抽奖",
+      "name": "jd_lzkj_wxDrawActivity.js",
+      "head_url": "lzclient",
+      "value": [
+        {
+          "export": ["jd_lzkj_wxDrawActivity_Id"],
+          "re_url": "(.*prod/cc/interaction/v2/2000(?:20002|3)/1001.*)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj关注店铺有礼",
+      "name": "jd_lzkj_wxShopFollowActivity.js",
+      "head_url": "wxShopFollowActivity",
+      "value": [
+        {
+          "export": ["jd_lzkj_wxShopFollowActivity_activityId"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj店铺礼包",
+      "name": "jd_lzkj_wxShopGift.js",
+      "head_url": "wxShopGift",
+      "value": [
+        {
+          "export": ["jd_lzkj_wxShopGift_ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "大牌联合通用",
+      "name": "jd_opencardDPLHTY.js",
+      "head_url": "jdbeverage/pages",
+      "value": [
+        {
+          "export": ["DPLHTY"],
+          "re_url": "actId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "邀好友赢大礼",
+      "name": "jd_prodev.js",
+      "head_url": "mall/active",
+      "value": [
+        {
+          "export": ["jd_prodev_id"],
+          "re_url": "code=(\\w+)"
+        },
+        {
+          "export": ["jd_prodev_actCode"],
+          "re_url": "code=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "京东直播互动抽奖",
+      "name": "jd_liveLottery.js",
+      "head_url": "dev/",
+      "value": [
+        {
+          "export": ["jd_liveLottery_ids"],
+          "re_url": "https://h5.*id=(\\w+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "入会礼包",
+      "name": "jd_opencard_gift.js",
+      "head_url": "shopcard",
+      "value": [
+        {
+          "export": ["jd_opencard_venderId"],
+          "re_url": "venderId=(\\w+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "翻牌签到",
+      "name": "jd_sendbeans.js",
+      "head_url": "jump/index",
+      "value": [
+        {
+          "export": ["jd_sendbeans_url"],
+          "re_url": "(,*)",
+          "cutting": "@"
+        },
+        {
+          "export": ["jd_sendbeans_urls"],
+          "re_url": "(,*)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "店铺刮刮乐（刮一刮）",
+      "name": "jd_shop_lottery.js",
+      "head_url": "shop/lottery",
+      "value": [
+        {
+          "export": ["jd_shopLottery_venderIds"],
+          "re_url": "venderId=(\\w+)",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "常规卡通用",
+      "name": "jd_opencard_common.js",
+      "head_url": "dingzhi/joinCommon",
+      "value": [
+        {
+          "export": ["jd_lzdz1_joinCommon_Id"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "组队瓜分奖品（超级无线/超级会员）",
+      "name": "jd_wxTeam.js",
+      "head_url": "wxTeam/activity",
+      "value": [
+        {
+          "export": ["jd_wxTeam_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺签到（超级无线/超级会员）",
+      "name": "jd_wxSign.js",
+      "head_url": "sign/signActivity2",
+      "value": [
+        {
+          "export": ["jd_wxSign_sign_lzkj_Ids"],
+          "re_url": "(.*sign/signActivity2.*)",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺签到（超级无线/超级会员）",
+      "name": "jd_wxSign.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_wxSign_sevenDay_lzkj_Ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺签到（超级无线/超级会员）",
+      "name": "jd_wxSign.js",
+      "head_url": "sign/signActivity",
+      "value": [
+        {
+          "export": ["jd_wxSign_sign_cjhy_Ids"],
+          "re_url": "(.*sign/signActivity.*)",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺签到（超级无线/超级会员）",
+      "name": "jd_wxSign.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_wxSign_sevenDay_cjhy_Ids"],
+          "re_url": "activityId=(\\w+)",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "店铺礼包（超级无线/超级会员）",
+      "name": "jd_wxShopGift.js",
+      "head_url": "wxShopGift/activity",
+      "value": [
+        {
+          "export": ["jd_wxShopGift_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "无线店铺签到（超级无线/超级会员）",
+      "name": "jd_shopSign.js",
+      "head_url": "sign/sevenDay",
+      "value": [
+        {
+          "export": ["jd_shopSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "无线店铺签到（超级无线/超级会员）",
+      "name": "jd_shopSign.js",
+      "head_url": "sign/signActivity",
+      "value": [
+        {
+          "export": ["jd_shopSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到",
+      "name": "jd_sevenDay.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["LZKJ_SEVENDAY"],
+          "re_url": "(https://lzkj.*sign/sevenDay/signActivity.*)"
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到",
+      "name": "jd_sevenDay.js",
+      "head_url": "sign/signActivity2",
+      "value": [
+        {
+          "export": ["LZKJ_SIGN"],
+          "re_url": "(https://lzkj.*sign/signActivity2.*)"
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到",
+      "name": "jd_sevenDay.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["CJHY_SEVENDAY"],
+          "re_url": "(https://cjhy.*sign/sevenDay/signActivity.*)"
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到",
+      "name": "jd_sevenDay.js",
+      "head_url": "sign/signActivity",
+      "value": [
+        {
+          "export": ["CJHY_SIGN"],
+          "re_url": "(https://cjhy.*sign/signActivity.*)"
+        }
+      ]
+    },
+    {
+      "alias": "gzsl-幸运抽奖",
+      "name": "jd_gzsl_lottery.js",
+      "head_url": "wuxian/mobileForApp",
+      "value": [
+        {
+          "export": ["jd_gzsl_lottery_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "惊喜开盲盒（京耕）",
+      "name": "jd_jinggeng_blindBox.js",
+      "head_url": "ql/front/loadBlindBox",
+      "value": [
+        {
+          "export": ["jd_jinggeng_blindBox_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购有礼（京耕）",
+      "name": "jd_jinggeng_cart.js",
+      "head_url": "ql/front/showCart",
+      "value": [
+        {
+          "export": ["jd_jinggeng_cart_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "积分抽奖（京耕）",
+      "name": "jd_jinggeng_drawOne.js",
+      "head_url": "ql/front/showDrawOne",
+      "value": [
+        {
+          "export": ["jd_jinggeng_drawOne_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "关注店铺有礼（京耕）",
+      "name": "jd_jinggeng_favoriteShop.js",
+      "head_url": "ql/front/showFavoriteShop",
+      "value": [
+        {
+          "export": ["jd_jinggeng_favoriteShop_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "完善有礼（京耕）",
+      "name": "jd_jinggeng_perfectInformation.js",
+      "head_url": "ql/front/showPerfectInformation",
+      "value": [
+        {
+          "export": ["jd_jinggeng_perfectInformation_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "签到有礼（京耕）",
+      "name": "jd_jinggeng_sign.js",
+      "head_url": "ql/front/showSign",
+      "value": [
+        {
+          "export": ["jd_jinggeng_sign_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "幸运抽奖（京耕）",
+      "name": "jd_jinggeng_taskDraw.js",
+      "head_url": "ql/front/showTaskDraw",
+      "value": [
+        {
+          "export": ["jd_jinggeng_taskDraw_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "加购有礼（超级无线）",
+      "name": "jd_lzkj_loreal_cart.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_cart_url"],
+          "re_url": "(.*.*activityType=10024.*)"
+        }
+      ]
+    },
+    {
+      "alias": "每日抢好礼（超级无线）",
+      "name": "jd_lzkj_loreal_dailyGrabs.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_dailyGrabs_url"],
+          "re_url": "(.*activityType=10022.*)"
+        }
+      ]
+    },
+    {
+      "alias": "签到有礼（超级无线）",
+      "name": "jd_lzkj_loreal_daySign.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_daySign_url"],
+          "re_url": "(.*activityType=(?:10023|10040).*)"
+        }
+      ]
+    },
+    {
+      "alias": "幸运抽奖（超级无线）",
+      "name": "jd_lzkj_loreal_draw.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_draw_url"],
+          "re_url": "(https://.*?activityType=(?:10001|10004|10020|10021|10026|10031|10041|10042|10046|10054|10062|10063|10073|10080).*)"
+        },
+        {
+          "export": ["jd_lzkj_loreal_draw_url"],
+          "re_url": "(https://.*?activityType=(?:10001|10004|10020|10021|10026|10031|10041|10042|10046|10054|10062|10063|10073|10080).*)"
+        }
+      ]
+    },
+    {
+      "alias": "关注商品有礼（超级无线）",
+      "name": "jd_lzkj_loreal_followGoods.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_followGoods_url"],
+          "re_url": "(https://.*?activityType=10053.*)"
+        }
+      ]
+    },
+    {
+      "alias": "邀请关注店铺有礼（超级无线）",
+      "name": "jd_lzkj_loreal_inviteFollowShop.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_inviteFollowShop_url"],
+          "re_url": "(https://.*?activityType=10068.*)"
+        }
+      ]
+    },
+    {
+      "alias": "知识超人（超级无线）",
+      "name": "jd_lzkj_loreal_know.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_know_url"],
+          "re_url": "(https://.*?activityType=10039.*?)"
+        }
+      ]
+    },
+    {
+      "alias": "关注店铺有礼（超级无线）",
+      "name": "jd_lzkj_loreal_lkFollowShop.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_lkFollowShop_url"],
+          "re_url": "(https://.*?activityType=10069.*?)"
+        }
+      ]
+    },
+    {
+      "alias": "组队瓜分奖品（超级无线）",
+      "name": "jd_lzkj_loreal_organizeTeam.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_organizeTeam_url"],
+          "re_url": "(https://.*?activityType=10033.*?)"
+        }
+      ]
+    },
+    {
+      "alias": "完善有礼（超级无线）",
+      "name": "jd_lzkj_loreal_perfectInfo.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_perfectInfo_url"],
+          "re_url": "(https://.*?activityType=10049.*?)"
+        }
+      ]
+    },
+    {
+      "alias": "积分兑换（超级无线）",
+      "name": "jd_lzkj_loreal_pointsExchange.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_pointsExchange_url"],
+          "re_url": "(https://.*?activityType=10079.*?)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺礼包（超级无线）",
+      "name": "jd_lzkj_loreal_shopGift.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_shopGift_url"],
+          "re_url": "(https://.*?activityType=10058.*?)"
+        }
+      ]
+    },
+    {
+      "alias": "积分兑换E卡（超级会员）",
+      "name": "jd_pointExgECard.js",
+      "head_url": "mc/wxPointShopView/pointExgECard",
+      "value": [
+        {
+          "export": ["jd_pointExgECard_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺积分签到（超级无线/超级会员）",
+      "name": "jd_wxSignPoint.js",
+      "head_url": "sign/signActivity2",
+      "value": [
+        {
+          "export": ["jd_wxSignPoint_sign_lzkj_Ids"],
+          "re_url": "(https://lzkj.*?/sign/signActivity2?activityId=(\\w+))"
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺积分签到（超级无线/超级会员）",
+      "name": "jd_wxSignPoint.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_wxSignPoint_sign_lzkj_Ids"],
+          "re_url": "(https://lzkj.*?/sign/sevenDay/signActivity?activityId=(\\w+))"
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺积分签到（超级无线/超级会员）",
+      "name": "jd_wxSignPoint.js",
+      "head_url": "sign/signActivity",
+      "value": [
+        {
+          "export": ["jd_wxSignPoint_sign_cjhy_Ids"],
+          "re_url": "(https://cjhy.*?/sign/signActivity?activityId=(\\w+))"
+        }
+      ]
+    },
+    {
+      "alias": "批量店铺积分签到（超级无线/超级会员）",
+      "name": "jd_wxSignPoint.js",
+      "head_url": "sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_wxSignPoint_sevenDay_cjhy_Ids"],
+          "re_url": "(https://cjhy.*?/sevenDay/signActivity?activityId=(\\w+))"
+        }
+      ]
+    },
+    {
+      "alias": "完善信息有礼（超级会员）",
+      "name": "jd_wx_completeInfoActivity.js",
+      "head_url": "wx/completeInfoActivity",
+      "value": [
+        {
+          "export": ["jd_wx_completeInfoActivity_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "每日抢好礼（超级无线/超级会员）",
+      "name": "jd_wx_daily.js",
+      "head_url": "activity/daily/wx/indexPage",
+      "value": [
+        {
+          "export": ["jd_wx_daily_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖（超级无线/超级会员）",
+      "name": "jd_wx_draw.js",
+      "head_url": "lzclient",
+      "value": [
+        {
+          "export": ["jd_wx_draw_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖（超级无线/超级会员）",
+      "name": "jd_wx_draw.js",
+      "head_url": "wxDrawActivity/activity",
+      "value": [
+        {
+          "export": ["jd_wx_draw_url"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖中心（超级无线）",
+      "name": "jd_wx_drawCenter.js",
+      "head_url": "drawCenter/activity",
+      "value": [
+        {
+          "export": ["jd_wx_drawCenter_activityId"],
+          "re_url": "activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺签到监控（超级无线/超级会员）",
+      "name": "jd_wx_shopSign.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_wx_shopSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺签到监控（超级无线/超级会员）",
+      "name": "jd_wx_shopSign.js",
+      "head_url": "sign/signActivity2",
+      "value": [
+        {
+          "export": ["jd_wx_shopSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺签到监控（超级无线/超级会员）",
+      "name": "jd_wx_shopSign.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["jd_wx_shopSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺签到监控（超级无线/超级会员）",
+      "name": "jd_wx_shopSign.js",
+      "head_url": "sign/signActivity",
+      "value": [
+        {
+          "export": ["jd_wx_shopSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺签到监控（超级无线/超级会员）",
+      "name": "jd_wx_shopSign.js",
+      "head_url": "prod/cc/cjwx/sign/signActivity2",
+      "value": [
+        {
+          "export": ["jd_wx_shopSign_activityUrl"],
+          "re_url": "(.+)"
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到（积分）",
+      "name": "jd_wxsign_jf.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["LZKJ_SEVENDAY_JF"],
+          "re_url": "(https://lzkj.*?activityId=(\\w+))",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到（积分）",
+      "name": "jd_wxsign_jf.js",
+      "head_url": "sign/signActivity2",
+      "value": [
+        {
+          "export": ["LZKJ_SIGN_JF"],
+          "re_url": "(https://lzkj.*?activityId=(\\w+))",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到（积分）",
+      "name": "jd_wxsign_jf.js",
+      "head_url": "sign/sevenDay/signActivity",
+      "value": [
+        {
+          "export": ["CJHY_SEVENDAY_JF"],
+          "re_url": "(https://cjhy.*?activityId=(\\w+))",
+          "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "超级无线店铺签到（积分）",
+      "name": "jd_wxsign_jf.js",
+      "head_url": "sign/signActivity",
+      "value": [
+        {
+          "export": ["CJHY_SIGN_JF"],
+          "re_url": "(https://cjhy.*?activityId=(\\w+))",
+          "cutting": ","
+        }
+      ]
+    }
+  ],
+  "activitiesStr": [
+    {
+      "alias": "店铺关注有礼",
+      "name": "jd_drawShopGift.js",
+      "value": [
+        {
+          "export": ["jd_drawShopGift_argv"]
+        }
+      ]
+    },
+    {
+      "alias": "PRO抽奖机抽奖",
+      "name": "jd_pro_lottery.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_pro_lottery_id"],
+          "re_url": ""
+        }
+      ]
+    },
+    {
+      "alias": "PRO抽奖机任务",
+      "name": "jd_pro_lottery_task.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_pro_lottery_task_id"],
+          "re_url": ""
+        }
+      ]
+    },
+    {
+      "alias": "微信红包团",
+      "name": "jd_wechat_openGroup.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_wechat_openGroup_id"],
+          "re_url": ""
+        }
+      ]
+    },
+    {
+      "alias": "直播抽奖",
+      "name": "jd_live_lottery.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_live_ids"],
+          "re_url": "",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "超店通用",
+      "name": "jd_opencard_shopLeague.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_lzdz1_shopLeague_Id"],
+          "re_url": ""
+        }
+      ]
+    },
+    {
+      "alias": "大牌联合浏览通用",
+      "name": "jd_opencard_viewshop.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["DPLHTY_VIEWSHOP_ID"],
+          "re_url": "",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "店铺礼包",
+      "name": "jd_shopGifts.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_shopGifts_ids"],
+          "re_url": "",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖",
+      "name": "jd_shop_draw.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_shop_draw_ids"],
+          "re_url": "",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "大牌联合浏览豆专用",
+      "name": "jd_dplh_viewShop.js",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_dplh_viewShop_ids"],
+          "re_url": "",
+          "cutting": "@"
+        }
+      ]
+    }
+  ]
+}

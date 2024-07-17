@@ -1,12 +1,14 @@
-import asyncio
 import json
 import os
 import time
 
 import aiofiles
 import json5
+from pydantic import ValidationError
 
+from schemas.activities import ActivitiesModel
 from schemas.conf import ConfModel
+from schemas.url import JdUrl
 from utils.logs import AsyncLog
 
 while True:
@@ -27,6 +29,22 @@ else:
         data = json5.load(f)
 conf = ConfModel(**data)
 log = AsyncLog(level=conf.project.log_level, log_path=conf.project.log_path)
+
+with open("activity.json", "r", encoding="utf8") as f:
+    activity_data = json.load(f)
+try:
+    activities_model = ActivitiesModel(**activity_data)
+except ValidationError as e:
+    print(e)
+
+with open("url.json", "r", encoding="utf8") as f:
+    dataStr = json.load(f)
+
+# 创建 JdUrl 实例
+try:
+    jd_url_config = JdUrl(**dataStr)
+except ValidationError as e:
+    print(e)
 
 
 async def read(file: str) -> json:

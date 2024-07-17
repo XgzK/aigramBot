@@ -31,7 +31,7 @@ class Ql(HTTPClient):
                 'Accept': 'application/json',
                 'Content-Type': 'application/json;charset=UTF-8'
             }
-            tk = await self.get(url=url + "/open/auth/token", headers=headers, params=params)
+            tk = await self.get(url=url + "/open/auth/token", headers=headers, params=params, timeout=6)
             return tk
         except Exception as e:
             await log.error(f"/open/auth/token接口异常: {e}")

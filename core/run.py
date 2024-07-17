@@ -2,19 +2,21 @@
 一直死循环执行
 """
 import asyncio
+import re
 import time
+from typing import Dict
 
 from pydantic import ValidationError
 
 from core import queue
-from init.conf import conf, log
-from schemas.activities import ExportModel
+from db.db_repeats import MethodRepeats
+from init.conf import conf, log, activities_model
+from models.repeats import Repeats
 from schemas.conf import QlModel
 from utils.ql import Ql
-from utils.queue import QueueItem
 
 
-class Core(Ql):
+class Core(Ql, MethodRepeats):
 
     def __init__(self):
         try:
@@ -24,11 +26,13 @@ class Core(Ql):
         self.interval = conf.project.interval
         super().__init__()
         self.queue = queue
+        self.expired: int = int(time.time()) + 3600
         self.new_time: int = 0  # ql下次任务列表获取时间
         self.ql_json: dict = {}
         self.ql_tf = False
         self.black_script = conf.activities.black_script
         self.Delay_dict = dict()
+        MethodRepeats.__init__(self, Repeats)
 
     async def die_while(self):
         """
@@ -40,18 +44,19 @@ class Core(Ql):
             get_queue = await self.queue.get()
             if not get_queue:
                 continue
-            t = await self.js_delay(get_queue.value)
-            if t:
-                tf = await self.detection()
-                if not tf:
-                    continue
-                # 开始执行后续任务
-                await self.ql_task_run(get_queue.value)
-                await asyncio.sleep(self.interval)
-            elif self.queue.qsize() < 10:
-                await asyncio.sleep(self.interval)
-            else:
-                await asyncio.sleep(5)
+            # 过滤重复
+            if not await self.repeat(get_queue):
+                continue
+
+            # 对链接进行转换
+            print("-----------------")
+            name_js = activities_model.Activities(get_queue)
+            # 开始执行后续任务
+            print(name_js)
+            if not await self.detection():
+                continue
+            await self.ql_task_run(name_js)
+            await asyncio.sleep(2)
 
     async def detection(self):
         """
@@ -99,7 +104,7 @@ class Core(Ql):
             return False
         return True
 
-    async def ql_task_run(self, get_queue: list[ExportModel]) -> bool:
+    async def ql_task_run(self, get_queue: Dict[str, str]) -> bool:
         """
         执行青龙任务
         :param get_queue:
@@ -109,24 +114,21 @@ class Core(Ql):
         """
         # 用于记录没有存在的脚本
         list_js = ""
-        # 遍历活动任务
-        for get_list in get_queue:
-            # 屏蔽的脚本
-            if get_list.name in self.black_script:
-                await log.info(f"{get_list.name} 脚本已被屏蔽")
+        for js_queue in get_queue:
+            if js_queue in self.black_script:
+                await log.info(f"{js_queue} 脚本已被屏蔽")
                 continue
-
-            # 如果不存在则跳过
-            if get_list.name not in self.ql_json:
-                list_js += f"{get_list.name}"
+            # 监测脚本是否存在
+            if js_queue not in self.ql_json:
+                list_js += f"{js_queue} "
                 continue
-            # 获取脚本信息
-            name_json = self.ql_json.get(get_list.name)
-            await log.info(f"开始写入青龙配置文件: 写入值{get_list.value} 执行的脚本: {name_json}")
+                # 获取脚本信息
+            name_json = self.ql_json.get(js_queue)
+            await log.info(f"开始写入青龙配置文件 执行的脚本: {name_json} 写入值{get_queue[name_json]}")
             try:
                 # 写入配置文件中
-                save = await self.post_configs_save(url=self.ql.url, auth=self.ql.Authorization, content=get_list.value,
-                                                    path=self.ql.file)
+                save = await self.post_configs_save(url=self.ql.url, auth=self.ql.Authorization,
+                                                    content=get_queue[name_json], path=self.ql.file)
                 if save['code'] != 200:
                     await log.error(f"青龙返回状态码异常 {save}")
                     return False
@@ -135,8 +137,7 @@ class Core(Ql):
                 if run['code'] != 200:
                     await log.error(f"青龙返回状态码异常 {run}")
                     return False
-                await log.info(
-                    f"发送执行命令成功 活动名称: {get_list.alias} 脚本名称: {get_list.name} 参数 {get_list.value}")
+                await log.info(f"发送执行命令成功 脚本名称: {name_json} 参数 {get_queue[name_json]}")
             except Exception as e:
                 await log.error(f"执行青龙发送异常: {e}")
             return True
@@ -144,20 +145,34 @@ class Core(Ql):
         await log.info(f"{list_js} 系列脚本都没有找到")
         return False
 
-    async def js_delay(self, get_queue: list[ExportModel]) -> bool:
+    async def repeat(self, text: str) -> bool:
         """
-        延迟队列,如果时间没到将会让脚本延迟回去等待
+        用来监测是否执行过对应的值过滤重复内容
+        :param text:
+        :type text:
         :return:
         :rtype:
         """
-        if get_queue[0].name not in self.Delay_dict:
-            # 如果没有存在则添加
-            self.Delay_dict.setdefault(get_queue[0].name, int(time.time()) + int(get_queue[0].delays))
-        else:
-            if self.Delay_dict.get(get_queue[0].name) > int(time.time()):
-                await log.info(f"此任务才执行没多久需回去排队等待: {get_queue}")
-                await self.queue.put(QueueItem(5, get_queue))
-                return False
+        # 过滤去重复
+        if conf.activities.repeat:
+            return True
+        # # 如果超过时间则删除
+        if self.expired < int(time.time()):
+            await self.dele_ti(int(time.time()))
+            self.expired = int(time.time()) + 3600
+        # 检测是否存在 ，如果是链接则使用正则获取其关键字
+        re_per = re.findall("(?:activityId|configCode|actId|code|token|shopId|venderId|id)=(\w+)&?", text)
+        if not re_per:
+            re_per = re.findall("export [\w_]+=\"?'?([\w:/.\-@&,?=]+)\"?'?", text)
+        if not re_per:
+            return True
 
-        self.Delay_dict[get_queue[0].name] = int(time.time()) + int(get_queue[0].delays)
+        if re_per:
+            se_re = await self.select_pe(value=re_per[0])
+            if se_re:
+                await log.info(f"{re_per[0]} 已经执行过了")
+                return False
+            else:
+                await self.add_pe(value=re_per[0], time=int(time.time()) + 3600)
+                return True
         return True

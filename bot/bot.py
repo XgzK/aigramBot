@@ -3,15 +3,16 @@ import sys
 import aiogram
 
 from aiogram import types, Dispatcher, Bot, Router
+from aiogram.client.default import DefaultBotProperties
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.client.telegram import TelegramAPIServer
+from aiogram.enums import ParseMode
 from aiogram.filters import and_f
 from python_socks import ProxyConnectionError
 
 from core.points import Dispose
 from init.conf import conf, log
 
-# All handlers should be attached to the Router (or Dispatcher)
 router = Router()
 # 处理文本的类
 dispose = Dispose()
@@ -61,33 +62,41 @@ async def main_bot() -> None:
         session = AiohttpSession(proxy=conf.tg.tg_proxy)
         await log.info("代理了TG的域名")
     elif conf.tg.tg_api:
-        session = AiohttpSession(
-            api=TelegramAPIServer.from_base(conf.tg.tg_api)
-        )
+        session = AiohttpSession(api=TelegramAPIServer.from_base(conf.tg.tg_api))
         await log.info("使用不安全反代连接TG")
     else:
         session = None
         await log.info("使用直连进行连接TG")
 
-    # logging.basicConfig(level="INFO")
-    # Dispatcher is a root router
     dp = Dispatcher()
-    # ... and all other routers should be attached to Dispatcher
-    dp.include_router(router)
 
-    # Initialize Bot instance with a default parse mode which will be passed to all API calls
-    bot = Bot(conf.tg.bot_token, parse_mode="HTML", session=session)
-    dispose.bot = bot
+    dp.include_router(router)
+    dispose.bot = Bot(conf.tg.bot_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML), session=session)
     try:
-        a = await bot.get_me()
+        a = await dispose.bot.get_me()
         if not a.can_join_groups:
             await log.error("无法加入群组 找 https://t.me/BotFather 发送 /setjoingroups 选择 @{a.username} 选择 Enable")
         if not a.can_read_all_group_messages:
-            await log.error(
-                f"无法接收全部消息 找 https://t.me/BotFather 发送 /setprivacy 选择 @{a.username} 选择 DISABLED")
+            await log.error(f"无法接收全部消息 找 https://t.me/BotFather 发送 /setprivacy 选择 @{a.username} 选择 DISABLED")
         await log.info(f"机器人名称: @{a.username} 已经上线")
+        # 启动时候发送基础通知
+        if conf.tg.user_id:
+            await dispose.bot.send_message(conf.tg.user_id, """支持库
+<a href="https://github.com/shufflewzc">faker系列</a> <a href="https://t.me/scriptalking">频道</a> <a href="https://t.me/Soucetalk">群</a>
+<a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
+<a href="https://github.com/9Rebels/jdmax">9Rebels</a>
+<a href="https://github.com/6dylan6/jdpro">6dylan6</a> <a href="https://t.me/dylan_jdpro">频道</a> <a href="https://t.me/+FrLpTZlvRa4zYTY1">群</a>
+<a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>""")
+        elif conf.tg.forward_from:
+            for chat in conf.tg.forward_from:
+                await dispose.bot.send_message(chat, """支持库
+                <a href="https://github.com/shufflewzc">faker系列</a> <a href="https://t.me/scriptalking">频道</a> <a href="https://t.me/Soucetalk">群</a>
+                <a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
+                <a href="https://github.com/9Rebels/jdmax">9Rebels</a>
+                <a href="https://github.com/6dylan6/jdpro">6dylan6</a> <a href="https://t.me/dylan_jdpro">频道</a> <a href="https://t.me/+FrLpTZlvRa4zYTY1">群</a>
+                <a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>""")
     except ProxyConnectionError as e:
         await log.error(f"无法链接到网络: {e}")
         sys.exit(1)
     # And the run events dispatching
-    await dp.start_polling(bot, polling_timeout=100)
+    await dp.start_polling(dispose.bot, polling_timeout=100)
