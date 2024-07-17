@@ -25,7 +25,7 @@ async def private_handler(message: types.Message) -> None:
     """
     try:
         if "/leave" in message.text:
-            await dispose.bot.aa.leave_chat(message.text.split(" ")[1])
+            await dispose.bot.leave_chat(message.text.split(" ")[1])
         # 如果是转发的消息会返回转发频道有关的信息
         if message.forward_from_chat:
             text = f"用户信息\n" \
@@ -47,7 +47,7 @@ async def public_handler(message: types.Message) -> None:
     """
     try:
         if "/leave" in message.text:
-            await dispose.bot.aa.leave_chat(message.chat.id)
+            await dispose.bot.leave_chat(message.chat.id)
         # 屏蔽转发的id和转发群组的ID
         if message.forward_from_chat and message.forward_from_chat.id in conf.tg.black_id + conf.tg.forward_from:
             await log.debug(f"{message.forward_from_chat.id} 设置了屏蔽或转发将自动屏蔽该内容")
