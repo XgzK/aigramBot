@@ -3,7 +3,6 @@
 """
 import asyncio
 import re
-import time
 
 from core import queue
 # from core import queue
@@ -26,6 +25,8 @@ class Dispose:
     async def pie(self, text: str):
         """
         用于把各种值进行分类，缺陷无法判断同一行中同类型
+        :param message:
+        :type message:
         :param text:
         :type text:
         :return:

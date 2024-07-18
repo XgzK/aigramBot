@@ -1637,6 +1637,10 @@
         {
           "export": ["jd_wxTeam_url"],
           "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_wxTeam_activityUrl"],
+          "re_url": "(.+)"
         }
       ]
     },
@@ -2199,6 +2203,17 @@
           "export": ["CJHY_SIGN_JF"],
           "re_url": "(https://cjhy.*?activityId=(\\w+))",
           "cutting": ","
+        }
+      ]
+    },
+    {
+      "alias": "粉丝福利红包",
+      "name": "jd_fansDraw.js",
+      "head_url": "fansactiveall",
+      "value": [
+        {
+          "export": ["jd_fansDraw_activityUrl"],
+          "re_url": "(.+)"
         }
       ]
     }

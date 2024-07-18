@@ -50,8 +50,10 @@ async def public_handler(message: types.Message) -> None:
     接收公共消息和文本,主要用于监控活动大概
     """
     try:
+        if "/id" == message.text:
+            await dispose.bot.send_message(message.chat.id, f"""当前ID: {message.chat.id}\n名称: {message.chat.title}""")
         if "/leave" in message.text:
-            await dispose.bot.leave_chat(message.chat.id)
+            await dispose.bot.leave_chat(message.sender_chat.id)
         # 屏蔽转发的id和转发群组的ID
         if message.forward_from_chat and message.forward_from_chat.id in conf.tg.black_id + conf.tg.forward_from:
             await log.debug(f"{message.forward_from_chat.id} 设置了屏蔽或转发将自动屏蔽该内容")
@@ -61,6 +63,7 @@ async def public_handler(message: types.Message) -> None:
             await dispose.pie(message.text)
     except TypeError:
         await message.answer("Nice try!")
+
 
 async def main_bot() -> None:
     await log.info(f"欢迎使用 aigramBot {conf.project.Identity} {conf.project.Version}")
@@ -84,7 +87,8 @@ async def main_bot() -> None:
         if not a.can_join_groups:
             await log.error("无法加入群组 找 https://t.me/BotFather 发送 /setjoingroups 选择 @{a.username} 选择 Enable")
         if not a.can_read_all_group_messages:
-            await log.error(f"无法接收全部消息 找 https://t.me/BotFather 发送 /setprivacy 选择 @{a.username} 选择 DISABLED")
+            await log.error(
+                f"无法接收全部消息 找 https://t.me/BotFather 发送 /setprivacy 选择 @{a.username} 选择 DISABLED")
         await log.info(f"机器人名称: @{a.username} 已经上线")
         # 启动时候发送基础通知
         if conf.tg.user_id:
