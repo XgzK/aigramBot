@@ -1733,7 +1733,7 @@
       "value": [
         {
           "export": ["LZKJ_SEVENDAY"],
-          "re_url": "(https://lzkj.*sign/sevenDay/signActivity.*)"
+          "re_url": "https://lzk.*?activityId=(\\w+)"
         }
       ]
     },
@@ -1744,7 +1744,7 @@
       "value": [
         {
           "export": ["LZKJ_SIGN"],
-          "re_url": "(https://lzkj.*sign/signActivity2.*)"
+          "re_url": "https://lzk.*?activityId=(\\w+)"
         }
       ]
     },
@@ -1755,7 +1755,7 @@
       "value": [
         {
           "export": ["CJHY_SEVENDAY"],
-          "re_url": "(https://cjhy.*sign/sevenDay/signActivity.*)"
+          "re_url": "https://cjhy.*?activityId=(\\w+)"
         }
       ]
     },
@@ -1766,7 +1766,7 @@
       "value": [
         {
           "export": ["CJHY_SIGN"],
-          "re_url": "(https://cjhy.*sign/signActivity.*)"
+          "re_url": "https://cjhy.*?activityId=(\\w+)"
         }
       ]
     },
