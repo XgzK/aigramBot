@@ -52,7 +52,7 @@ async def public_handler(message: types.Message) -> None:
     try:
         if "/id" == message.text:
             await dispose.bot.send_message(message.chat.id, f"""当前ID: {message.chat.id}\n名称: {message.chat.title}""")
-        if "/leave" in message.text:
+        if "/leave" == message.text:
             await dispose.bot.leave_chat(message.sender_chat.id)
         # 屏蔽转发的id和转发群组的ID
         if message.forward_from_chat and message.forward_from_chat.id in conf.tg.black_id + conf.tg.forward_from:
