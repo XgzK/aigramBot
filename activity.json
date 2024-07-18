@@ -129,7 +129,7 @@
       "value": [
         {
           "export": ["jd_wxCompleteInfoId"],
-          "re_url": "(.+)",
+          "re_url": "activityId=(\\w+)&venderId=(\\w+)",
           "cutting": "&"
         }
       ]
@@ -1101,7 +1101,8 @@
       "value": [
         {
           "export": ["jd_cjhy_wxShopFollowActivity_activityIds"],
-          "re_url": "activityId=(\\w+)"
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
         }
       ]
     },
@@ -1651,7 +1652,7 @@
       "value": [
         {
           "export": ["jd_wxSign_sign_lzkj_Ids"],
-          "re_url": "(.*sign/signActivity2.*)",
+          "re_url": "https://lzkj.*?activityId=(\\w+)",
           "cutting": ","
         }
       ]
@@ -1663,7 +1664,7 @@
       "value": [
         {
           "export": ["jd_wxSign_sevenDay_lzkj_Ids"],
-          "re_url": "activityId=(\\w+)",
+          "re_url": "https://lzkj.*?activityId=(\\w+)",
           "cutting": ","
         }
       ]
@@ -1675,7 +1676,7 @@
       "value": [
         {
           "export": ["jd_wxSign_sign_cjhy_Ids"],
-          "re_url": "(.*sign/signActivity.*)",
+          "re_url": "https://cjhy.*?activityId=(\\w+)",
           "cutting": ","
         }
       ]
@@ -1687,7 +1688,7 @@
       "value": [
         {
           "export": ["jd_wxSign_sevenDay_cjhy_Ids"],
-          "re_url": "activityId=(\\w+)",
+          "re_url": "https://cjhy.*?activityId=(\\w+)",
           "cutting": ","
         }
       ]

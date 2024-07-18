@@ -1,4 +1,5 @@
 import os
+import re
 import signal
 import sys
 
@@ -29,7 +30,9 @@ async def private_handler(message: types.Message) -> None:
         if "/Restart" == message.text:
             os.kill(os.getpid(), signal.SIGINT)
         if "/leave" in message.text:
-            await dispose.bot.leave_chat(message.text.split(" ")[1])
+            leave = re.findall("/leave (\w+)", message.text)
+            if leave:
+                await dispose.bot.leave_chat(leave[0])
         # 如果是转发的消息会返回转发频道有关的信息
         if message.forward_from_chat:
             text = f"用户信息\n" \

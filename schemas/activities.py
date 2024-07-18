@@ -18,8 +18,8 @@ class Value(BaseModel):
         if ex_list:
             if len(ex_list) == 1 and type(ex_list[0]) == str:
                 return f'export {self.export[0]}="{ex_list[0]}"'
-            if len(ex_list) == 1 and type(ex_list[0]) == dict and self.cutting != '':
-                return f'export {ex_list[0]}="{"&".join(ex_list[0][0])}"'
+            if len(ex_list) == 1 and type(ex_list[0]) == tuple and self.cutting != '':
+                return f'export {self.export[0]}="{"&".join(ex_list[0])}"'
 
 
 class Activity(BaseModel):
