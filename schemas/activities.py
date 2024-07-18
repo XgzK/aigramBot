@@ -41,10 +41,12 @@ class ActivitiesModel(BaseModel):
         export_lists = {}
         for activities in self.activitiesUrl:
             export_list = []
-            for values in activities.value:
-                export_value = values.Export_Re_List(value)
-                if export_value:
-                    export_list.append(export_value)
+            if activities.head_url in value:
+                for values in activities.value:
+                    # if values.expor not in export_lists:
+                    export_value = values.Export_Re_List(value)
+                    if export_value:
+                        export_list.append(export_value)
             if export_list:
                 export_lists[activities.name] = '\n'.join(export_list)
         return export_lists

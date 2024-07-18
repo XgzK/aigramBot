@@ -50,6 +50,8 @@ class Core(Ql, MethodRepeats):
 
             # 对链接进行转换
             name_js = activities_model.Activities(get_queue)
+            if not name_js:
+                await log.debug(f"没有适配脚本: {get_queue}")
             # 开始执行后续任务
             if not await self.detection():
                 continue
