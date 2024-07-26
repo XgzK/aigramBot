@@ -80,6 +80,7 @@ class Core(Ql, MethodRepeats):
             # 如果过期将会重新获取
             ql_tk = await self.token(self.ql.url, params)
             if ql_tk == {} or ql_tk['code'] != 200:
+                await log.error(f"获取青龙tk异常: {ql_tk}")
                 return False
             # 写入模型中
             self.ql.Authorization = f"{ql_tk['data']['token_type']} {ql_tk['data']['token']}"
