@@ -41,3 +41,15 @@ class MethodRepeats:
         except Exception as e:
             await log.error(e)
             return 0
+
+    async def delete_all(self):
+        """
+        删除所有数据
+        :return:
+        :rtype:
+        """
+        try:
+            return await Repeats.all().delete()
+        except Exception as e:
+            await log.error(e)
+            return 0

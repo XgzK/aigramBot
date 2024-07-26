@@ -40,6 +40,8 @@ class Core(Ql, MethodRepeats):
         :return:
         :rtype:
         """
+        # 删除所有数据
+        await self.delete_all()
         while True:
             get_queue = await self.queue.get()
             if not get_queue:
@@ -70,7 +72,7 @@ class Core(Ql, MethodRepeats):
         ti = int(time.time())
         # 先检测是否过期或者或者需要获取青龙的
         if self.ql.expiration <= ti:
-            await log.info("获取青龙auth")
+            await log.info(f"获取青龙auth 青龙返回有效时间 {self.ql.expiration} 当前时间 {ti}")
             params = {
                 'client_id': self.ql.Client_ID,
                 'client_secret': self.ql.Client_Secret
@@ -81,7 +83,10 @@ class Core(Ql, MethodRepeats):
                 return False
             # 写入模型中
             self.ql.Authorization = f"{ql_tk['data']['token_type']} {ql_tk['data']['token']}"
-            self.ql.expiration = ql_tk['data']['expiration']
+            if int(ql_tk['data']['expiration']) > int(time.time()):
+                self.ql.expiration = int(ql_tk['data']['expiration'])
+            else:
+                self.ql.expiration = int(time.time()) + 3600
 
         # 获取青龙的任务列表
         if self.new_time <= ti:
