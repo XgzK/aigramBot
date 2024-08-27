@@ -1100,7 +1100,7 @@
       "head_url": "wxShopGift",
       "value": [
         {
-          "export": ["jd_cjhy_wxShopFollowActivity_activityIds"],
+          "export": ["jd_cjhy_wxShopGift_ids"],
           "re_url": "activityId=(\\w+)",
           "cutting": "&"
         }

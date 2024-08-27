@@ -410,8 +410,8 @@
         "@"
       ]
     },
-    "jd_cjhy_wxShopFollowActivity_activityIds": {
-      "url": "https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=jd_cjhy_wxShopFollowActivity_activityIds",
+    "jd_cjhy_wxShopGift_ids": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxShopGift/activity?activityId=jd_cjhy_wxShopGift_ids",
       "cutting": [
         "&"
       ]
