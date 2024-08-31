@@ -76,4 +76,6 @@ class JdUrl(BaseModel):
             return []
         if type(ex[0]) == tuple and ex[0][0] in self.JdUrl:
             return self.JdUrl[ex[0][0]].UrlStr(ex)
+        elif "https://" in ex[0][1]:
+            return [ex[0][1]]
         return []

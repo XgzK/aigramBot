@@ -10,6 +10,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.client.telegram import TelegramAPIServer
 from aiogram.enums import ParseMode
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import and_f
 from python_socks import ProxyConnectionError
 
@@ -95,17 +96,21 @@ async def main_bot() -> None:
         await log.info(f"机器人名称: @{a.username} 已经上线")
         # 启动时候发送基础通知
         if conf.tg.user_id:
-            await dispose.bot.send_message(conf.tg.user_id, """支持库
-<a href="https://github.com/shufflewzc">faker系列</a> <a href="https://t.me/scriptalking">频道</a> <a href="https://t.me/Soucetalk">群</a>
-<a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
-<a href="https://github.com/9Rebels/jdmax">9Rebels</a>
-<a href="https://github.com/6dylan6/jdpro">6dylan6</a> <a href="https://t.me/dylan_jdpro">频道</a> <a href="https://t.me/+FrLpTZlvRa4zYTY1">群</a>
-<a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>
-/Restart 私发给机器人可以重启机器人
-/leave 群ID 私发可以退出群聊""")
+            try:
+                await dispose.bot.send_message(conf.tg.user_id, """支持库
+                <a href="https://github.com/shufflewzc">faker系列</a> <a href="https://t.me/scriptalking">频道</a> <a href="https://t.me/Soucetalk">群</a>
+                <a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
+                <a href="https://github.com/9Rebels/jdmax">9Rebels</a>
+                <a href="https://github.com/6dylan6/jdpro">6dylan6</a> <a href="https://t.me/dylan_jdpro">频道</a> <a href="https://t.me/+FrLpTZlvRa4zYTY1">群</a>
+                <a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>
+                /Restart 私发给机器人可以重启机器人
+                /leave 群ID 私发可以退出群聊""")
+            except TelegramBadRequest as e:
+                await log.error(f"填写的用户ID错误: {e}")
         elif conf.tg.forward_from:
             for chat in conf.tg.forward_from:
-                await dispose.bot.send_message(chat, """支持库
+                try:
+                    await dispose.bot.send_message(chat, """支持库
 <a href="https://github.com/shufflewzc">faker系列</a> <a href="https://t.me/scriptalking">频道</a> <a href="https://t.me/Soucetalk">群</a>
 <a href="https://github.com/feverrun/my_scripts">环境</a> <a href="https://t.me/proenvc">频道</a> <a href="https://t.me/proenv">群</a>
 <a href="https://github.com/9Rebels/jdmax">9Rebels</a>
@@ -113,6 +118,8 @@ async def main_bot() -> None:
 <a href="https://github.com/HarbourJ/HarbourToulu">HarbourToulu</a> <a href="https://t.me/HarbourToulu">频道</a> <a href="https://t.me/HarbourChat">群</a>
 /Restart 私发给机器人可以重启机器人
 /leave 群ID 私发可以退出群聊""")
+                except TelegramBadRequest as e:
+                    await log.error(f"填写的 {chat} 转发ID错误: {e}")
     except ProxyConnectionError as e:
         await log.error(f"无法链接到网络: {e}")
         sys.exit(1)
