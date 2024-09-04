@@ -120,5 +120,18 @@ docker cp config.json5 aigramBot:/aigram
   > 对解析调整
   > 更改解析数据
   >  使用用户ID启动时候发送支持库
+- > 0.5 内测版本
+  > 调整 环境 cjhy签到有礼jd_cjhy_signActivity.js 由jd_cjhy_signActivity_ids 改成 jd_cjhy_signActivity_urls
+  > 修补变量转链接携带分割符合地转换为空bug
+  > 修补 export jd_xxx_ids="id1&id2&" 分割符号再最后无值链接bug
+  > 修补jd_lzkj_10070_v1_ids 转换链接错误问题
+  > 修补变量转换链接没有匹配对应转换返回空bug
+  > 添加环境库支持脚本如下 jd_gzsl_sevenSign.js jd_jingyun_daily.js jd_lzkj_10038_lrkj.js jd_lzkj_10058_dplb.js jd_lzkj_v2_cart.js jd_shopbenefit.js
+  > 添加faker支持脚本如下 jd_OpenCard_Force.js jd_lzkj_invite.js jd_lzkj_share.js jd_lzkj_v2_cart.js jd_wxShopGift.js
+  > 删除 jd_lzkj_loreal_invite.js jd_lzkj_loreal_share.js jd_lzkj_loreal_sign.js 原因查看 faker2/xxx.js 注释
+  > HarbourToulu库不收录脚本如下 jd_inviteDrawPdd_new.py jd_inviteDrawPrize_JD_new.py jd_inviteDrawPrize_JX.py jd_inviteDrawPrize_guagua.py jd_inviteDraw_guagua.py
+  > 添加HarbourToulu支持脚本如下 jd_jinggengInvite.py jd_shopFollowGift.py jd_wxBulidActivity.py
+  > 修补HarbourToulu变量转链接错误问题 jd_joinCommon_opencard.py
+  >  暂时放弃对 shop.m.jd.com 部分系列进行转换链接 jd_shopFollowGift.py
 
 # 逻辑

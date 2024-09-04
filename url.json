@@ -4,8 +4,7 @@
       "url": "https://shop.m.jd.com/shop/lottery?shopId=DPCJID",
       "cutting": [
         "&"
-      ],
-      "urlStr": false
+      ]
     },
     "jd_inv_authorCode": {
       "url": "https://prodev.m.jd.com/mall/active/index.html?code=jd_inv_authorCode"
@@ -18,11 +17,14 @@
       ]
     },
     "jd_joinCommonId": {
-      "url": "https://lzdz1-isv.isvjcloud.com/m/unite/dzlh0001?activityId=#0&venderId=#1",
+      "url": "https://lzdz1-isv.isvjcloud.com/dingzhi/joinCommon/activity??activityId=#0&venderId=#1",
       "urlStr": true,
       "cutting": [
         "&"
       ]
+    },
+    "jd_wxBulidActivityId": {
+      "url": "https://lzkj-isv.isvjcloud.com/wxBuildActivity/activity?activityId=jd_wxBulidActivityId"
     },
     "jd_shopCollectGiftId": {
       "url": "https://shop.m.jd.com/shop/home?shopId=jd_shopCollectGiftId"
@@ -64,10 +66,9 @@
         "&"
       ]
     },
-    "jd_cjhy_signActivity_ids": {
-      "url": "https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=jd_cjhy_signActivity_ids",
+    "jd_cjhy_signActivity_urls": {
       "cutting": [
-        "&"
+        "@"
       ]
     },
     "jd_cjhy_wxCollectionActivityId": {
@@ -178,10 +179,10 @@
       "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10069&activityId=jd_lzkj_10069_gzyl_activityId&nodeId=101001&prd=cjwx"
     },
     "jd_lzkj_10070_v1_ids": {
-      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interaction/v1/index?activityType=10069&activityId=jd_lzkj_10070_v1_idsx"
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interaction/v1/index?activityType=10070&activityId=jd_lzkj_10070_v1_idsx"
     },
     "jd_lzkj_10070_yqhyrh_activityId": {
-      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10069&activityId=jd_lzkj_10070_yqhyrh_activityId"
+      "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10070&activityId=jd_lzkj_10070_yqhyrh_activityId&nodeId=101001&prd=cjwx"
     },
     "jd_lzkj_10079_jfdh_Ids": {
       "url": "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10079&activityId=jd_lzkj_10079_jfdh_Ids",
@@ -190,7 +191,6 @@
       ]
     },
     "jd_lzkj_100_draw_urls": {
-      "urlStr": true,
       "cutting": [
         "@"
       ]
@@ -217,19 +217,16 @@
       ]
     },
     "jd_lzkj_v2_birthday_urls": {
-      "urlStr": true,
       "cutting": [
         "@"
       ]
     },
     "jd_lzkj_v2_completeInfo_urls": {
-      "urlStr": true,
       "cutting": [
         "@"
       ]
     },
     "jd_lzkj_v2_draw_urls": {
-      "urlStr": true,
       "cutting": [
         "@"
       ]
@@ -240,13 +237,11 @@
       ]
     },
     "jd_jingyun_sign_urls": {
-      "urlStr": true,
       "cutting": [
         "@"
       ]
     },
     "jd_lzkj_v2_sign_urls": {
-      "urlStr": true,
       "cutting": [
         "@"
       ]
@@ -290,7 +285,6 @@
       "url": "https://lzdz1-isv.isvjcloud.com/dingzhi/joinCommon/activity/activity?activityId=jd_lzdz1_joinCommon_Id"
     },
     "jd_sendbeans_urls": {
-      "urlStr": true,
       "cutting": [
         "@"
       ]
@@ -445,10 +439,19 @@
         ","
       ]
     },
+    "jd_opencard_force_venderId": {
+      "url": "https://shopmember.m.jd.com/shopcard/?venderId=jd_opencard_force_venderId"
+    },
     "jd_opencard_venderId": {
       "url": "https://shopmember.m.jd.com/shopcard/?venderId=jd_opencard_venderId",
       "cutting": [
         ","
+      ]
+    },
+    "jd_shopbenefit_venderId": {
+      "url": "https://shopmember.m.jd.com/shopbenefit/?shopId=jd_shopbenefit_venderId&venderId=jd_shopbenefit_venderId",
+      "cutting": [
+        "&"
       ]
     },
     "jd_wxSign_sevenDay_cjhy_Ids": {
@@ -545,6 +548,26 @@
       "url": "https://cjhy-isv.isvjcloud.com/sign/signActivity?activityId=CJHY_SIGN_JF",
       "cutting": [
         ","
+      ]
+    },
+    "jd_gzsl_sevenSign_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_jingyun_daily_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_10058_dplb_urls": {
+      "cutting": [
+        "@"
+      ]
+    },
+    "jd_lzkj_v2_cart_urls": {
+      "cutting": [
+        "@"
       ]
     }
   }

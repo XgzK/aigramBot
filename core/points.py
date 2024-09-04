@@ -42,6 +42,7 @@ class Dispose:
                 #  await queue.put(QueueItem(export_va[0].js_level, export_va))
                 await queue.put(url)
                 await self.forward(url)
+                return
                 # t_tx = re.findall(r'(https://[\w\-.]+(?:isv|jd).*?\.com/[a-zA-Z0-9&?=_/-].*)', text)
         except Exception as e:
             await log.debug(f"异常 {e} 触发异常内容 {text}")

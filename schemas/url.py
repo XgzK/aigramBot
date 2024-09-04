@@ -44,6 +44,10 @@ class UrlConfig(BaseModel):
             # 如果链接有两个地方填补，但是是一个变量 export jd_joinCommonId="1a12ee7043694bb18bc2cac04a6581c5&1000003443"
             # 对变量进行分割
             textList = list()
+            # 检测是否存在标记物品
+            if not re.findall(f"{''.join(self.cutting)}+", exoprt_js[0][1]):
+                 # 如果不操作则返回转换后的
+                return [self.url.replace(exoprt_js[0][0], exoprt_js[0][1])]
             for i in self.cutting:
                 textStr = self.url
                 if self.urlStr:
@@ -57,6 +61,9 @@ class UrlConfig(BaseModel):
                     exoprt_list = exoprt_js[0][1].split(i)
                     if len(exoprt_list) > 1:
                         for j in exoprt_list:
+                            # 如果分割符号后分割为空跳过
+                            if j == "":
+                                continue
                             textList.append(textStr.replace(exoprt_js[0][0], j))
             return textList
         else:
@@ -76,6 +83,8 @@ class JdUrl(BaseModel):
             return []
         if type(ex[0]) == tuple and ex[0][0] in self.JdUrl:
             return self.JdUrl[ex[0][0]].UrlStr(ex)
+        elif ex[0][0].endswith("_url"):
+            return [ex[0][1]]
         elif "https://" in ex[0][1]:
             return [ex[0][1]]
-        return []
+        return [exoprt_js]

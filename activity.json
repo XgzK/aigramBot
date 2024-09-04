@@ -1,6 +1,126 @@
 {
   "activitiesUrl": [
     {
+      "alias": "通用开卡-joinCommon系列",
+      "name": "jd_joinCommon_opencard.py",
+      "head_url": "dingzhi/joinCommon",
+      "value": [
+        {
+          "export": ["jd_joinCommonId"],
+          "re_url": "activityId=(\\w+)&venderId=(\\d+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "jinggeng邀请入会有礼",
+      "name": "jd_jinggengInvite.py",
+      "head_url": "ql/front/showInviteJoin",
+      "value": [
+        {
+          "export": ["jinggengInviteJoin"],
+          "re_url": "id=(\\w+)&user_id=(\\d+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "邀请好友入会（超级无线）",
+      "name": "jd_lzkj_invite.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_invite_url"],
+          "re_url": "(https.*?activityType=(?:10070|10006).*)"
+        }
+      ]
+    },
+    {
+      "alias": "店铺会员权益礼包",
+      "name": "jd_shopbenefit.js",
+      "head_url": "com/shopbenefit",
+      "value": [
+        {
+          "export": ["jd_shopbenefit_venderId"],
+          "re_url": "venderId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "店铺抽奖",
+      "name": "jd_shop_draw.js",
+      "head_url": "shop/lottery",
+      "value": [
+        {
+          "export": ["jd_shop_draw_ids"],
+          "re_url": "shopId=(\\w+)",
+          "cutting": "&"
+        }
+      ]
+    },
+    {
+      "alias": "gzsl 七日签到",
+      "name": "jd_gzsl_sevenSign.js",
+      "head_url": "wuxian/mobileForApp/dist2",
+      "value": [
+        {
+          "export": ["jd_gzsl_sevenSign_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "jingyun 会员每日限时抢",
+      "name": "jd_gzsl_sevenSign.js",
+      "head_url": "h5/pages/dailyLimitedTimeGrab",
+      "value": [
+        {
+          "export": ["jd_jingyun_daily_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10038邀请好友帮砍价",
+      "name": "jd_lzkj_10038_lrkj.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10038_lrkj_activityId"],
+          "re_url": "prod/cc/interactsaas.*?activityType=10038.*activityId=(\\w+)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_10058店铺礼包",
+      "name": "jd_lzkj_10058_dplb.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_10058_dplb_urls"],
+          "re_url": "(https://.*?activityType=10058.*)"
+        }
+      ]
+    },
+    {
+      "alias": "lzkj_v2 加购",
+      "name": "jd_lzkj_v2_cart.js",
+      "head_url": "prod/cc/interaction/v2/10024",
+      "value": [
+        {
+          "export": ["jd_lzkj_v2_cart_urls"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/10024.*)"
+        },
+        {
+          "export": ["jd_lzkj_v2_cart_url"],
+          "re_url": "(https://.*?prod/cc/interaction/v2/10024.*)"
+        }
+      ]
+    },
+    {
       "alias": "店铺抽奖-JK",
       "name": "jd_dpcj.py",
       "head_url": "shop/lottery",
@@ -19,18 +139,6 @@
         {
           "export": ["jd_inv_authorCode"],
           "re_url": "code=(\\w+)"
-        }
-      ]
-    },
-    {
-      "alias": "通用开卡-joinCommon系列",
-      "name": "jd_joinCommon_opencard.py",
-      "head_url": "dingzhi/joinCommon",
-      "value": [
-        {
-          "export": ["jd_joinCommonId"],
-          "re_url": "activityId=(\\w+)&venderId=(\\d+)",
-          "cutting": "&"
         }
       ]
     },
@@ -63,7 +171,7 @@
       "value": [
         {
           "export": ["jd_lzkjInteractFollowUrl"],
-          "re_url": "(https.*?activityType=(?:10069|10053).*?)"
+          "re_url": "(https.*?activityType=(?:10069|10053).*)"
         }
       ]
     },
@@ -504,39 +612,6 @@
       ]
     },
     {
-      "alias": "邀请入会有礼（超级无线）",
-      "name": "jd_lzkj_loreal_invite.js",
-      "head_url": "prod/cc/interactsaas",
-      "value": [
-        {
-          "export": ["jd_lzkj_loreal_invite_url"],
-          "re_url": "(https://.*?activityType=(?:10006|10070).*)"
-        }
-      ]
-    },
-    {
-      "alias": "分享有礼（超级无线）",
-      "name": "jd_lzkj_loreal_share.js",
-      "head_url": "prod/cc/interactsaas",
-      "value": [
-        {
-          "export": ["jd_lzkj_loreal_share_url"],
-          "re_url": "(https://.*?activityType=10043.*)"
-        }
-      ]
-    },
-    {
-      "alias": "签到抽奖（超级无线）",
-      "name": "jd_lzkj_loreal_sign.js",
-      "head_url": "prod/cc/interactsaas",
-      "value": [
-        {
-          "export": ["jd_lzkj_loreal_sign_url"],
-          "re_url": "(https://.*?activityType=(?:10001|10002|10003|10004).*)"
-        }
-      ]
-    },
-    {
       "alias": "组队瓜分奖品（超级无线）",
       "name": "jd_lzkj_organizeTeam.js",
       "head_url": "prod/cc/interactsaas",
@@ -555,6 +630,17 @@
         {
           "export": ["jd_lzkj_perfectInfo_url"],
           "re_url": "(https://.*?activityType=10049.*)"
+        }
+      ]
+    },
+    {
+      "alias": "分享有礼（超级无线）",
+      "name": "jd_lzkj_share.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_share_url"],
+          "re_url": "(https://.*?activityType=10043.*)"
         }
       ]
     },
@@ -1006,9 +1092,9 @@
       "head_url": "sign/signActivity",
       "value": [
         {
-          "export": ["jd_cjhy_signActivity_ids"],
-          "re_url": "activityId=(\\w+)",
-          "cutting": "&"
+          "export": ["jd_cjhy_signActivity_urls"],
+          "re_url": "(.+)",
+          "cutting": "@"
         }
       ]
     },
@@ -1019,7 +1105,8 @@
       "value": [
         {
           "export": ["jd_cjhy_wxCollectionActivityId"],
-          "re_url": "activityId=(\\w+)"
+          "re_url": "activityId=(\\w+)",
+          "cutting": "&"
         }
       ]
     },
@@ -1701,6 +1788,10 @@
         {
           "export": ["jd_wxShopGift_activityUrl"],
           "re_url": "(.+)"
+        },
+        {
+          "export": ["jd_wxShopGift_url"],
+          "re_url": "(.+)"
         }
       ]
     },
@@ -1918,6 +2009,17 @@
       ]
     },
     {
+      "alias": "邀请好友入会（超级无线）",
+      "name": "jd_lzkj_loreal_invite.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_followGoods_url"],
+          "re_url": "(https://.*?activityType=(?:10070|10006).*)"
+        }
+      ]
+    },
+    {
       "alias": "邀请关注店铺有礼（超级无线）",
       "name": "jd_lzkj_loreal_inviteFollowShop.js",
       "head_url": "prod/cc/interactsaas",
@@ -1935,7 +2037,7 @@
       "value": [
         {
           "export": ["jd_lzkj_loreal_know_url"],
-          "re_url": "(https://.*?activityType=10039.*?)"
+          "re_url": "(https://.*?activityType=10039.*)"
         }
       ]
     },
@@ -1946,7 +2048,7 @@
       "value": [
         {
           "export": ["jd_lzkj_loreal_lkFollowShop_url"],
-          "re_url": "(https://.*?activityType=10069.*?)"
+          "re_url": "(https://.*?activityType=10069.*)"
         }
       ]
     },
@@ -1957,7 +2059,7 @@
       "value": [
         {
           "export": ["jd_lzkj_loreal_organizeTeam_url"],
-          "re_url": "(https://.*?activityType=10033.*?)"
+          "re_url": "(https://.*?activityType=10033.*)"
         }
       ]
     },
@@ -1968,7 +2070,18 @@
       "value": [
         {
           "export": ["jd_lzkj_loreal_perfectInfo_url"],
-          "re_url": "(https://.*?activityType=10049.*?)"
+          "re_url": "(https://.*?activityType=10049.*)"
+        }
+      ]
+    },
+    {
+      "alias": "分享有礼（超级无线）",
+      "name": "jd_lzkj_loreal_share.js",
+      "head_url": "prod/cc/interactsaas",
+      "value": [
+        {
+          "export": ["jd_lzkj_loreal_share_url"],
+          "re_url": "(https://.*?activityType=10043.*)"
         }
       ]
     },
@@ -1979,7 +2092,7 @@
       "value": [
         {
           "export": ["jd_lzkj_loreal_pointsExchange_url"],
-          "re_url": "(https://.*?activityType=10079.*?)"
+          "re_url": "(https://.*?activityType=10079.*)"
         }
       ]
     },
@@ -1990,7 +2103,7 @@
       "value": [
         {
           "export": ["jd_lzkj_loreal_shopGift_url"],
-          "re_url": "(https://.*?activityType=10058.*?)"
+          "re_url": "(https://.*?activityType=10058.*)"
         }
       ]
     },
@@ -2221,6 +2334,17 @@
   ],
   "activitiesStr": [
     {
+      "alias": "强制入会",
+      "name": "jd_drawShopGift.js",
+      "head_url": "com/shopcard",
+      "value": [
+        {
+          "export": ["jd_opencard_force_venderId"],
+          "re_url": "venderId=(\\w+)"
+        }
+      ]
+    },
+    {
       "alias": "店铺关注有礼",
       "name": "jd_drawShopGift.js",
       "value": [
@@ -2310,18 +2434,6 @@
       ]
     },
     {
-      "alias": "店铺抽奖",
-      "name": "jd_shop_draw.js",
-      "head_url": "",
-      "value": [
-        {
-          "export": ["jd_shop_draw_ids"],
-          "re_url": "",
-          "cutting": "&"
-        }
-      ]
-    },
-    {
       "alias": "大牌联合浏览豆专用",
       "name": "jd_dplh_viewShop.js",
       "head_url": "",
@@ -2330,6 +2442,18 @@
           "export": ["jd_dplh_viewShop_ids"],
           "re_url": "",
           "cutting": "@"
+        }
+      ]
+    },
+    {
+      "alias": "关注有礼-JK",
+      "name": "jd_shopFollowGift.py",
+      "head_url": "",
+      "value": [
+        {
+          "export": ["jd_shopFollowGiftId"],
+          "re_url": "",
+          "cutting": "&"
         }
       ]
     }
