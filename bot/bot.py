@@ -124,4 +124,4 @@ async def main_bot() -> None:
         await log.error(f"无法链接到网络: {e}")
         sys.exit(1)
     # And the run events dispatching
-    await dp.start_polling(dispose.bot, polling_timeout=100)
+    await dp.start_polling(dispose.bot, polling_timeout=99)
